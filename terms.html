@@ -2,56 +2,256 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terms of Service — FinGames</title>
-<meta name="description" content="Terms of Service for FinGames.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Terms of Service — FIN GAMES</title>
+<meta name="description" content="Terms of Service — FIN GAMES">
+<meta name="theme-color" content="#08080A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="Terms of Service — FIN GAMES">
+<meta property="og:description" content="Terms of Service — FIN GAMES">
+<meta property="og:image" content="https://aaron-ada91.github.io/fingames-site/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="terms.html">
+<link rel="alternate" hreflang="fr" href="terms.fr.html">
+<script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("fg-theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})();</script>
 <style>
-  :root { color-scheme: dark light; --bg:#08080A; --fg:#F4F3F0; --dim:#8B8B95;
-          --line:#26262C; --accent:#FF6B00; }
-  @media (prefers-color-scheme: light) {
-    :root { --bg:#FAFAF7; --fg:#0F0F12; --dim:#6A6A73; --line:#E3E3DE; }
-  }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); line-height:1.6;
-         font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  .wrap { max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 5rem; }
-  header { display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap;
-           padding-bottom:1.25rem; border-bottom:1px solid var(--line); }
-  .brand { font-weight:700; letter-spacing:.14em; font-size:1.05rem; }
-  .brand b { color:var(--accent); }
-  nav { margin-left:auto; display:flex; gap:1.1rem; flex-wrap:wrap; }
-  nav a { color:var(--dim); text-decoration:none; font-size:.85rem; }
-  nav a:hover, nav a[aria-current] { color:var(--accent); }
-  h1 { font-size:1.9rem; letter-spacing:.02em; margin:2rem 0 .25rem; }
-  .meta { color:var(--dim); font-size:.85rem; margin:0 0 2rem; }
-  section { border-top:1px solid var(--line); padding-top:1.5rem; margin-top:1.5rem; }
-  h2 { font-size:1.02rem; letter-spacing:.04em; display:flex; gap:.75rem; margin:0 0 .75rem; }
-  .n { color:var(--accent); font-variant-numeric:tabular-nums; font-weight:700; }
-  p, li { color:var(--fg); }
-  ul { padding-left:1.1rem; }
-  dl { display:grid; grid-template-columns:auto 1fr; gap:.35rem 1rem; margin:.5rem 0 0; }
-  dt { color:var(--dim); font-size:.85rem; }
-  a { color:var(--accent); }
-  footer { margin-top:3.5rem; padding-top:1.25rem; border-top:1px solid var(--line);
-           color:var(--dim); font-size:.82rem; }
-  .todo { display:inline-block; padding:.1rem .4rem; border:1px dashed var(--accent);
-          border-radius:.25rem; color:var(--accent); font-size:.8rem; }
+@font-face{font-family:"Space Grotesk";font-weight:400;font-display:swap;src:url(assets/fonts/SpaceGrotesk-400.ttf) format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url(assets/fonts/SpaceGrotesk-500.ttf) format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url(assets/fonts/SpaceGrotesk-700.ttf) format("truetype")}
+@font-face{font-family:"JetBrains Mono";font-weight:700;font-display:swap;src:url(assets/fonts/JetBrainsMono-700.ttf) format("truetype")}
+:root{color-scheme:dark;--bg:#08080A;--surface:#121215;--sunken:#1A1A1F;--border:#26262C;--hairline:#1E1E23;
+  --fg:#F4F3F0;--dim:#A4A4AC;--faint:#828288;--accent:#FF6B00;--accent-text:#FF6B00;
+  --accent-soft:rgba(255,107,0,.14);--green:#16A34A;--green-text:#3ECF8E;--blue:#2186E0;--blue-text:#5AA8F0;
+  --bloom:.55;--shadow:0 30px 80px rgba(0,0,0,.55);}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;--bg:#FAFAF7;--surface:#FFFFFF;--sunken:#F1F1ED;--border:#DEDED8;--hairline:#E8E8E2;
+  --fg:#0F0F12;--dim:#505057;--faint:#6D6D73;--accent:#FF6B00;--accent-text:#B84D00;
+  --accent-soft:rgba(255,107,0,.10);--green:#16A34A;--green-text:#117F3A;--blue:#2186E0;--blue-text:#1C70BC;
+  --bloom:.32;--shadow:0 30px 70px rgba(15,15,18,.18);}:root:not([data-theme="dark"]) .on-dark{display:none} :root:not([data-theme="dark"]) .on-light{display:inline-block}}
+:root[data-theme="light"]{color-scheme:light;--bg:#FAFAF7;--surface:#FFFFFF;--sunken:#F1F1ED;--border:#DEDED8;--hairline:#E8E8E2;
+  --fg:#0F0F12;--dim:#505057;--faint:#6D6D73;--accent:#FF6B00;--accent-text:#B84D00;
+  --accent-soft:rgba(255,107,0,.10);--green:#16A34A;--green-text:#117F3A;--blue:#2186E0;--blue-text:#1C70BC;
+  --bloom:.32;--shadow:0 30px 70px rgba(15,15,18,.18);}
+:root[data-theme="light"] .on-dark{display:none} :root[data-theme="light"] .on-light{display:inline-block}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.65 "Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto}
+a{color:var(--accent-text)}
+svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.on-light{display:none}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:16px;top:12px;z-index:10;background:var(--surface);padding:8px 12px;border-radius:8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:72rem;margin:0 auto;padding:0 20px}
+
+/* ── En-tête ── */
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--hairline)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
+.brand img{width:36px;height:36px;filter:drop-shadow(0 0 8px rgba(255,107,0,.35))}
+.word{font-weight:700;letter-spacing:.16em;font-size:15px;white-space:nowrap}
+.menu{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.menu a{color:var(--dim);text-decoration:none;font-size:14px;font-weight:500;padding:8px 10px;border-radius:8px}
+.menu a:hover{color:var(--fg);background:var(--sunken)}
+.menu a[aria-current]{color:var(--accent-text)}
+.tools{display:flex;align-items:center;gap:8px}
+.seg{display:inline-flex;padding:3px;border:1px solid var(--border);border-radius:999px;background:var(--surface)}
+.seg a,.seg button{appearance:none;border:0;background:none;color:var(--faint);font:700 12px/1 "Space Grotesk",sans-serif;
+  letter-spacing:.08em;min-width:34px;height:30px;padding:0 10px;border-radius:999px;display:inline-flex;align-items:center;
+  justify-content:center;gap:6px;text-decoration:none;cursor:pointer}
+.seg svg{font-size:16px}
+.seg a:hover,.seg button:hover{color:var(--fg)}
+.seg [aria-current],.seg [aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-text)}
+.theme{display:none}
+.js .theme{display:inline-flex}
+@media (max-width:760px){
+  .top .wrap{gap:6px 12px;padding-top:10px;padding-bottom:6px}
+  .menu{order:3;width:100%;margin:0 -10px;overflow-x:auto}
+  .tools{margin-left:auto}
+  .theme button{min-width:30px;padding:0 7px}
+}
+
+/* ── Accueil : l'ouverture ── */
+.hero{position:relative;padding:72px 0 40px;isolation:isolate}
+.blooms{position:absolute;inset:-120px -10vw -160px;z-index:-1;pointer-events:none;opacity:var(--bloom);
+  -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent);
+  background:radial-gradient(38% 42% at 18% 30%,rgba(22,163,74,.45),transparent 70%),
+             radial-gradient(40% 46% at 78% 26%,rgba(255,107,0,.55),transparent 70%),
+             radial-gradient(42% 44% at 62% 88%,rgba(33,134,224,.45),transparent 72%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-logo{width:96px;height:96px;margin-bottom:22px;filter:drop-shadow(0 0 22px rgba(255,107,0,.4))}
+.eyebrow{margin:0 0 10px;color:var(--faint);font-size:12px;font-weight:700;letter-spacing:.22em}
+.hero h1{margin:0;font-size:clamp(44px,7vw,76px);line-height:1.02;letter-spacing:-.02em;font-weight:700}
+.lead{margin:20px 0 0;font-size:clamp(17px,2vw,20px);color:var(--dim);max-width:34rem}
+.bars{display:flex;gap:6px;margin:26px 0 0}
+.bars i{display:block;width:30px;height:3px;border-radius:9px}
+.bars i:nth-child(1){background:var(--accent)}.bars i:nth-child(2){background:var(--green)}.bars i:nth-child(3){background:var(--blue)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.soon{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;border-radius:14px;
+  background:var(--accent);color:#0A0A0B;font-weight:700;letter-spacing:.06em;font-size:14px;
+  box-shadow:0 10px 30px rgba(255,107,0,.35)}
+.soon svg{font-size:18px}
+.ghost{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:14px;
+  border:1px solid var(--border);color:var(--fg);text-decoration:none;font-weight:500;background:var(--surface)}
+.ghost:hover{border-color:var(--accent)}
+.ghost svg{font-size:17px}
+.phones{position:relative;height:620px}
+.phone{position:absolute;width:290px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
+.phone.front{right:14%;top:0;z-index:2}
+.phone.back{right:52%;top:70px;width:255px;opacity:.95;transform:rotate(-6deg)}
+@media (max-width:900px){
+  .hero{padding-top:44px}
+  .hero .wrap{grid-template-columns:1fr;gap:28px}
+  .phones{height:auto;display:flex;justify-content:center;gap:0}
+  .phone{position:relative;width:min(56vw,250px)}
+  .phone.front{right:auto;top:auto}
+  .phone.back{right:auto;top:26px;width:min(48vw,215px);margin-right:-12vw}
+}
+
+/* ── Sections ── */
+.band{padding:64px 0}
+.kicker{display:flex;align-items:center;gap:14px;margin:0 0 26px;color:var(--faint);font-size:12px;font-weight:700;letter-spacing:.22em}
+.kicker::after{content:"";flex:1;height:1px;background:var(--hairline)}
+.band h2{font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-.01em;margin:0 0 28px;max-width:40rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+.card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px;overflow:hidden}
+.world::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--c)}
+.world::after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(closest-side,var(--c),transparent);opacity:.16}
+.world img{height:52px;width:auto;margin-bottom:14px}
+.world h3{margin:0 0 8px;font-size:19px;line-height:1.3}
+.world p{margin:0;color:var(--dim)}
+.step .idx{font:700 13px "JetBrains Mono",monospace;color:var(--faint)}
+.step h3{margin:10px 0 6px;font-size:22px;letter-spacing:.12em}
+.step p{margin:0;color:var(--dim)}
+.step:nth-child(1) h3{color:var(--accent-text)}.step:nth-child(2) h3{color:var(--green-text)}.step:nth-child(3) h3{color:var(--blue-text)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.shot{margin:0;text-align:center}
+.shot img{filter:drop-shadow(0 20px 36px rgba(0,0,0,.4))}
+.shot figcaption{margin-top:12px;color:var(--dim);font-size:14px;font-weight:500}
+@media (max-width:900px){
+  .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;
+    scroll-snap-type:x mandatory;padding:4px 20px 18px;margin:0 -20px}
+  .shot{scroll-snap-align:center}
+}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.promise{grid-template-columns:1fr}}
+.promise .card{display:flex;gap:14px;align-items:flex-start}
+.promise svg{flex:none;font-size:22px;color:var(--accent-text);margin-top:2px}
+.promise strong{display:block;font-size:17px}
+.promise span{color:var(--dim);font-size:15px}
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:22px;font-weight:500;text-decoration:none}
+.more svg{font-size:16px}
+.fine{color:var(--faint);font-size:13px;max-width:52rem}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:760px){.docs{grid-template-columns:1fr}}
+.docs a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px;border-radius:14px;
+  border:1px solid var(--border);background:var(--surface);color:var(--fg);text-decoration:none;font-weight:500}
+.docs a:hover{border-color:var(--accent)}
+.docs svg{color:var(--accent-text);font-size:18px}
+
+/* ── Documents légaux ── */
+.doc{padding:48px 0 24px}
+.doc .wrap{display:grid;grid-template-columns:15rem minmax(0,46rem);gap:56px;justify-content:center}
+.toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;font-size:13.5px}
+.toc p{margin:0 0 10px;color:var(--faint);font-size:12px;font-weight:700;letter-spacing:.2em}
+.toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--hairline)}
+.toc a{display:block;padding:5px 0 5px 14px;color:var(--dim);text-decoration:none;line-height:1.35}
+.toc a:hover{color:var(--accent-text)}
+.toc .n{font:700 11px "JetBrains Mono",monospace;color:var(--faint);margin-right:6px}
+@media (max-width:960px){.doc .wrap{grid-template-columns:minmax(0,1fr)}.toc{display:none}}
+.doc h1{font-size:clamp(34px,5vw,48px);line-height:1.08;letter-spacing:-.015em;margin:0 0 12px}
+.meta{color:var(--faint);font-size:14px;margin:0 0 30px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.doc-section{border-top:1px solid var(--hairline);padding-top:26px;margin-top:26px;scroll-margin-top:84px}
+.doc-section h2{font-size:15px;letter-spacing:.08em;display:flex;gap:12px;margin:0 0 12px;line-height:1.4}
+.n{color:var(--accent-text);font:700 14px "JetBrains Mono",monospace}
+.doc p,.doc li{color:var(--fg)}
+.doc ul{padding-left:1.15rem}
+.doc li{margin:4px 0}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:10px 0 0}
+dt{color:var(--faint);font-size:14px}
+dd{margin:0}
+.intro{font-size:17px}
+
+/* ── Support ── */
+.contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin:6px 0 34px;
+  padding:26px;border-radius:18px;border:1px solid var(--accent);background:linear-gradient(135deg,var(--accent-soft),transparent 70%),var(--surface)}
+.contact strong{display:block;font-size:13px;letter-spacing:.2em;color:var(--faint)}
+.contact .addr{font:700 clamp(16px,2.4vw,20px) "JetBrains Mono",monospace;color:var(--fg);word-break:break-all}
+.contact .soon{text-decoration:none}
+
+/* ── Pied de page ── */
+.foot{margin-top:40px;border-top:1px solid var(--hairline);padding:36px 0 48px;color:var(--faint);font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
+.foot .brand img{width:28px;height:28px}
+.foot .word{font-size:13px;color:var(--fg)}
+.foot p{margin:10px 0 0}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.foot nav a{color:var(--dim);text-decoration:none}
+.foot nav a:hover{color:var(--accent-text)}
+.todo{color:var(--accent-text)}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <span class="brand">FIN<b>GAMES</b></span>
-  <nav><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html" aria-current="page">Terms</a><a href="support.html">Support</a></nav>
-</header>
-<h1>Terms of Service</h1>
-<p class="meta">Last updated : [DATE — à la validation finale] — <a href="terms.fr.html">Lire en français</a></p>
-<p>Welcome to FinGames.</p><p>These Terms of Service (“Terms”) govern your access to and use of the FinGames application and its associated services, including its three sections FinMath, FinMind and FinCode, and any related features, content, websites, or services operated by [COMPANY — micro-entreprise à immatriculer] (“we”, “us”, or “our”).</p><p>By accessing or using FinGames, you agree to be bound by these Terms.</p><p>If you do not agree with these Terms, you should not use the application.</p>
-<section><h2><span class="n">01</span>ABOUT THE APPLICATION</h2><p>FinGames is an educational and training application designed to help users develop skills and knowledge related to areas such as:</p><ul><li>financial mathematics;</li><li>mental calculation;</li><li>logic and quantitative reasoning;</li><li>financial markets;</li><li>macroeconomics and geopolitics;</li><li>financial products;</li><li>the financial industry;</li><li>programming and coding;</li><li>technical and financial interview preparation;</li><li>other educational topics related to finance and quantitative disciplines.</li></ul><p>FinGames may include quizzes, exercises, challenges, scores, statistics, rankings, streaks, achievements, experience points (“XP”), performance indicators, and other gamification features.</p><p>FinGames is provided primarily for educational, informational, and training purposes.</p></section><section><h2><span class="n">02</span>NOT FINANCIAL OR INVESTMENT ADVICE</h2><p>FinGames does not provide financial, investment, trading, legal, tax, accounting, or professional advice.</p><p>Nothing available through the application should be interpreted as:</p><ul><li>a recommendation to buy, sell, or hold any financial instrument;</li><li>investment advice;</li><li>a trading signal;</li><li>a solicitation or offer relating to any financial product;</li><li>portfolio management advice;</li><li>a prediction of future market performance.</li></ul><p>Any examples involving financial instruments, companies, securities, currencies, derivatives, commodities, interest rates, market scenarios, or economic events are provided solely for educational purposes.</p><p>You remain solely responsible for any financial or investment decisions you make.</p><p>You should consult an appropriately qualified professional before making investment, financial, tax, or legal decisions.</p></section><section><h2><span class="n">03</span>NO GUARANTEE OF ACCURACY</h2><p>We aim to provide high-quality and accurate educational content.</p><p>However, financial markets, economic data, laws, regulations, industry practices, technologies, and programming tools may change over time.</p><p>We therefore do not guarantee that all information available through FinGames is at all times:</p><ul><li>complete;</li><li>accurate;</li><li>error-free;</li><li>current;</li><li>suitable for a particular purpose.</li></ul><p>Some questions or explanations may simplify real-world concepts for educational purposes.</p><p>If you identify an error or outdated information, you may contact us at fingames.support@gmail.com.</p></section><section><h2><span class="n">04</span>ELIGIBILITY</h2><p>You must be at least 16 years old, or meet the minimum legal age required in your country to use the application independently.</p><p>If you are below the age required to enter into these Terms independently, you may only use FinGames with the consent of a parent or legal guardian where applicable.</p><p>By using FinGames, you confirm that you are legally permitted to do so.</p></section><section><h2><span class="n">05</span>NO ACCOUNT, AND WHERE YOUR DATA LIVES</h2><p>FinGames does not require you to create an account, and does not ask for a name, an email address, or a password.</p><p>Everything the application records — your progress, your scores, your settings and your subscription status — is stored on your device.</p><p>Two consequences follow, and you should know both:</p><ul><li>we cannot recover your progress if you delete the application, change device, or reset your device;</li><li>we cannot access, read, or restore your data, because it never reaches us.</li></ul><p>Your subscription is held by the store you purchased it from, not by us, and can be restored through that store on a new device.</p><p>If a future version introduces optional accounts, these Terms will be updated before that feature is made available.</p></section><section><h2><span class="n">06</span>SCORES, XP, RANKS AND PERFORMANCE DATA</h2><p>FinGames may provide gamification and performance features including:</p><ul><li>scores;</li><li>accuracy rates;</li><li>response times;</li><li>XP;</li><li>streaks;</li><li>personal records;</li><li>achievements;</li><li>statistics;</li><li>rankings;</li><li>levels or professional-style ranks such as Trainee, Analyst, Associate, VP, Director, and MD.</li></ul><p>These features exist exclusively within the FinGames application.</p><p>A FinGames rank does not represent:</p><ul><li>an academic qualification;</li><li>a professional certification;</li><li>employment experience;</li><li>regulatory authorization;</li><li>a professional title;</li><li>competence recognized by any bank, financial institution, university, employer, regulator, or other third party.</li></ul><p>For example, achieving the rank of “Managing Director” or “MD” within FinGames does not imply that the user holds or is qualified to hold such a professional position.</p><p>Scores and performance indicators should be interpreted solely as in-app measures of performance.</p></section><section><h2><span class="n">07</span>EDUCATIONAL CONTENT</h2><p>Questions, answers, explanations, exercises, challenges, illustrations, code examples, market scenarios, and other educational materials available through FinGames are intended to support learning and practice.</p><p>We may periodically:</p><ul><li>add new content;</li><li>remove content;</li><li>modify questions;</li><li>update explanations;</li><li>adjust difficulty levels;</li><li>change scoring mechanisms;</li><li>modify XP calculations;</li><li>modify rank requirements.</li></ul><p>We may make such changes without prior notice where reasonably necessary to improve the service.</p></section><section><h2><span class="n">08</span>INTELLECTUAL PROPERTY</h2><p>Unless otherwise stated, the FinGames application and its content are owned by or licensed to [COMPANY — micro-entreprise à immatriculer].</p><p>This includes, where applicable:</p><ul><li>the FinGames name and branding;</li><li>FinMath, FinGames and FinCode branding;</li><li>logos;</li><li>interface designs;</li><li>graphics;</li><li>illustrations;</li><li>questions;</li><li>explanations;</li><li>databases;</li><li>software;</li><li>source code;</li><li>algorithms;</li><li>animations;</li><li>sounds;</li><li>text;</li><li>educational structures;</li><li>ranking systems;</li><li>original content.</li></ul><p>These materials may be protected by copyright, trademark, database rights, and other intellectual property laws.</p><p>Your use of FinGames does not transfer any ownership rights to you.</p></section><section><h2><span class="n">09</span>LIMITED LICENSE</h2><p>We grant you a limited, personal, non-exclusive, non-transferable, revocable license to use FinGames for personal and lawful purposes in accordance with these Terms.</p><p>Unless expressly authorized by us, you may not:</p><ul><li>copy substantial portions of the application or its content;</li><li>reproduce or redistribute our question database;</li><li>sell or commercially exploit our content;</li><li>reverse engineer the application except where permitted by law;</li><li>scrape or automatically extract content;</li><li>bypass technical protections;</li><li>create unauthorized derivative products based on FinGames content;</li><li>use automated systems, bots, or scripts to manipulate scores, XP, rankings, or statistics.</li></ul></section><section><h2><span class="n">10</span>ACCEPTABLE USE</h2><p>You agree not to use FinGames in any manner that:</p><ul><li>violates applicable law;</li><li>interferes with the operation or security of the application;</li><li>attempts to gain unauthorized access to systems or accounts;</li><li>introduces malicious software;</li><li>exploits vulnerabilities;</li><li>manipulates ranking or scoring systems;</li><li>impersonates another user;</li><li>infringes intellectual property rights;</li><li>abuses, threatens, or harms other users where social features are available.</li></ul><p>We may restrict or terminate access where these rules are violated.</p></section><section><h2><span class="n">11</span>THIRD-PARTY INFORMATION AND SERVICES</h2><p>FinGames may display or refer to information originating from third-party sources, including financial, economic, technological, or market-related information.</p><p>FinGames may also contain links to external websites or services.</p><p>We do not control third-party websites or services and are not responsible for:</p><ul><li>their content;</li><li>accuracy;</li><li>availability;</li><li>security;</li><li>privacy practices;</li><li>products or services.</li></ul><p>Access to third-party services is subject to their own terms and policies.</p></section><section><h2><span class="n">12</span>MARKET AND CURRENT-EVENT CONTENT</h2><p>Certain FinGames content may relate to financial markets, companies, economic indicators, geopolitical events, central banks, financial institutions, or current events.</p><p>Such information may become outdated quickly.</p><p>Unless specifically indicated otherwise, users should not assume that FinGames provides real-time market data.</p><p>FinGames should not be relied upon as a primary source for executing financial transactions or making investment decisions.</p></section><section><h2><span class="n">13</span>PROGRAMMING AND CODE CONTENT</h2><p>FinCode may include source code, programming questions, algorithms, debugging exercises, or technical examples.</p><p>Code provided through FinGames is primarily educational.</p><p>We do not guarantee that code examples are:</p><ul><li>suitable for production environments;</li><li>secure;</li><li>optimized;</li><li>compatible with every software environment;</li><li>free from errors.</li></ul><p>Users are responsible for reviewing and testing any code before using it outside FinGames.</p></section><section><h2><span class="n">14</span>SUBSCRIPTIONS AND PURCHASES</h2><p>Certain features of FinGames may be offered free of charge, while other features may require payment or subscription.</p><p>The LEARN, PRACTICE and EVALUATE sections are available to paying subscribers only. Difficulty levels above the easiest one require an active subscription.</p><p>Subscriptions renew automatically at the end of each period, at the price displayed at the time of purchase, unless cancelled at least 24 hours before the end of the current period.</p><p>Cancelling stops the next renewal; it does not shorten or refund the period already paid for, unless applicable law provides otherwise.</p><p>You can cancel at any time from your account settings in the App Store or Google Play. Deleting the application does not cancel a subscription.</p><p>Where paid services are available, pricing and billing conditions will be displayed before purchase.</p><p>Payments made through platforms such as Apple’s App Store or Google Play may also be subject to the applicable platform’s payment and subscription terms.</p><p>Unless required otherwise by applicable law, subscription management, renewals, and cancellations may need to be performed through the platform where the subscription was purchased.</p><p>We reserve the right to modify pricing for future billing periods, subject to applicable notice requirements.</p></section><section><h2><span class="n">15</span>FREE TRIALS AND PROMOTIONAL OFFERS</h2><p>We may occasionally provide free trials, promotional access, discounts, or other offers.</p><p>FinGames does not currently offer a free trial. Access requires an active subscription from the outset.</p><p>Should such an offer be introduced, its scope, duration and conditions would be displayed on the subscription screen before it begins.</p><p>Eligibility requirements and duration may vary.</p><p>We reserve the right to modify or discontinue promotional offers subject to applicable law.</p><p>Unless cancelled before the end of a trial period, a trial may convert into a paid subscription where this has been clearly disclosed during registration.</p><p>If you are a consumer in the European Union, you normally have fourteen days to withdraw from a distance purchase. Because access to the paid content begins immediately, you are asked to acknowledge that this right lapses once access has started — as European consumer law allows for digital content supplied immediately.</p><p>This does not affect any mandatory right you hold under the law of your country of residence.</p></section><section><h2><span class="n">16</span>SERVICE AVAILABILITY</h2><p>We aim to keep FinGames available and operational.</p><p>However, we do not guarantee uninterrupted access.</p><p>The application may occasionally be unavailable due to:</p><ul><li>maintenance;</li><li>technical issues;</li><li>infrastructure failures;</li><li>updates;</li><li>security measures;</li><li>circumstances outside our reasonable control.</li></ul><p>We may also modify, discontinue, or replace features where necessary.</p></section><section><h2><span class="n">17</span>UPDATES TO THE APPLICATION</h2><p>We may release updates to improve:</p><ul><li>functionality;</li><li>security;</li><li>content;</li><li>compatibility;</li><li>design;</li><li>performance.</li></ul><p>Certain updates may be necessary for continued use of the application.</p><p>The availability of features may vary depending on device, operating system, geographic location, subscription level, or application version.</p></section><section><h2><span class="n">18</span>DISCLAIMER OF WARRANTIES</h2><p>To the fullest extent permitted by applicable law, FinGames is provided on an “as is” and “as available” basis.</p><p>We do not guarantee that:</p><ul><li>the application will always be available;</li><li>all content will be error-free;</li><li>using FinGames will guarantee academic, professional, financial, or employment success;</li><li>using FinGames will result in success in interviews, examinations, trading activities, or recruitment processes;</li><li>any specific learning outcome will be achieved.</li></ul><p>Nothing in these Terms excludes warranties or rights that cannot legally be excluded under applicable consumer protection laws.</p></section><section><h2><span class="n">19</span>LIMITATION OF LIABILITY</h2><p>To the fullest extent permitted by applicable law, [COMPANY — micro-entreprise à immatriculer] shall not be liable for indirect, incidental, consequential, special, or similar damages resulting from the use of or inability to use FinGames.</p><p>In particular, we are not responsible for losses resulting from financial, trading, investment, employment, academic, or professional decisions made on the basis of content accessed through FinGames.</p><p>Nothing in these Terms limits liability where such limitation is prohibited by applicable law.</p></section><section><h2><span class="n">20</span>PRIVACY</h2><p>Your privacy is important to us.</p><p>Our collection and use of personal information are governed by our Privacy Policy, available within the application and at our website.</p><p>The Privacy Policy explains, among other things:</p><ul><li>what information we collect;</li><li>why we collect it;</li><li>how it is used;</li><li>how long it may be retained;</li><li>what rights users may have regarding their personal information.</li></ul><p>By using FinGames, you acknowledge that you have had the opportunity to review our Privacy Policy.</p></section><section><h2><span class="n">21</span>ACCOUNT TERMINATION</h2><p>You may stop using FinGames at any time.</p><p>Where account deletion functionality is available, you may request deletion of your account through the application or by contacting fingames.support@gmail.com.</p><p>We may suspend, restrict, or terminate access where reasonably necessary, including in cases of:</p><ul><li>serious or repeated violations of these Terms;</li><li>fraudulent activity;</li><li>manipulation of application systems;</li><li>security risks;</li><li>unlawful activity.</li></ul><p>Where required by applicable law, appropriate notice will be provided.</p></section><section><h2><span class="n">22</span>CHANGES TO THESE TERMS</h2><p>We may update these Terms from time to time to reflect:</p><ul><li>changes to FinGames;</li><li>new features;</li><li>changes in applicable law;</li><li>security requirements;</li><li>business or operational changes.</li></ul><p>The latest version will display an updated “Last updated” date.</p><p>Where a change materially affects your rights or obligations, we may provide additional notice where required.</p><p>Continued use of FinGames after updated Terms become effective constitutes acceptance of the updated Terms to the extent permitted by law.</p></section><section><h2><span class="n">23</span>GOVERNING LAW</h2><p>These Terms shall be governed by the laws of France, without prejudice to any mandatory consumer protection rights available to you under the laws applicable in your country of residence.</p><p>Any disputes relating to these Terms shall be handled by the competent courts determined under applicable law.</p></section><section><h2><span class="n">24</span>SEVERABILITY</h2><p>If any provision of these Terms is determined to be invalid, illegal, or unenforceable, the remaining provisions will continue in full force and effect.</p></section><section><h2><span class="n">25</span>ENTIRE AGREEMENT</h2><p>These Terms, together with our Privacy Policy and any additional terms expressly presented for specific services, constitute the agreement between you and us regarding your use of FinGames.</p></section><section><h2><span class="n">26</span>CONTACT</h2><p>If you have questions regarding these Terms, you may contact us at:</p><dl><dt></dt><dd>FinGames</dd><dt></dt><dd>[COMPANY — micro-entreprise à immatriculer]</dd><dt>Email</dt><dd>fingames.support@gmail.com</dd><dt>Address</dt><dd>[ADDRESS — siège social à confirmer]</dd><dt>Website</dt><dd>https://aaron-ada91.github.io/fingames-site</dd></dl></section>
-<footer>
-  <p>[COMPANY — micro-entreprise à immatriculer] — France<br>
-  <a href="mailto:fingames.support@gmail.com">fingames.support@gmail.com</a></p>
-</footer>
-</div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="36" height="36"><span class="word">FIN GAMES</span></a>
+  <nav class="menu" aria-label="Home"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html" aria-current="page">Terms</a><a href="support.html">Support</a></nav>
+  <div class="tools">
+    <nav class="seg" aria-label="Language"><a href="terms.html" hreflang="en" lang="en" aria-current="true">EN</a><a href="terms.fr.html" hreflang="fr" lang="fr">FR</a></nav>
+    <div class="seg theme" role="group" aria-label="Theme"><button type="button" data-set-theme="system" aria-pressed="false" title="System" aria-label="Theme : System"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button><button type="button" data-set-theme="light" aria-pressed="false" title="Light" aria-label="Theme : Light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button><button type="button" data-set-theme="dark" aria-pressed="false" title="Dark" aria-label="Theme : Dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div></header>
+<main id="main">
+<article class="doc"><div class="wrap">
+  <nav class="toc" aria-label="Contents"><p>CONTENTS</p><ol><li><a href="#s01"><span class="n">01</span>ABOUT THE APPLICATION</a></li><li><a href="#s02"><span class="n">02</span>NOT FINANCIAL OR INVESTMENT ADVICE</a></li><li><a href="#s03"><span class="n">03</span>NO GUARANTEE OF ACCURACY</a></li><li><a href="#s04"><span class="n">04</span>ELIGIBILITY</a></li><li><a href="#s05"><span class="n">05</span>NO ACCOUNT, AND WHERE YOUR DATA LIVES</a></li><li><a href="#s06"><span class="n">06</span>SCORES, XP, RANKS AND PERFORMANCE DATA</a></li><li><a href="#s07"><span class="n">07</span>EDUCATIONAL CONTENT</a></li><li><a href="#s08"><span class="n">08</span>INTELLECTUAL PROPERTY</a></li><li><a href="#s09"><span class="n">09</span>LIMITED LICENSE</a></li><li><a href="#s10"><span class="n">10</span>ACCEPTABLE USE</a></li><li><a href="#s11"><span class="n">11</span>THIRD-PARTY INFORMATION AND SERVICES</a></li><li><a href="#s12"><span class="n">12</span>MARKET AND CURRENT-EVENT CONTENT</a></li><li><a href="#s13"><span class="n">13</span>PROGRAMMING AND CODE CONTENT</a></li><li><a href="#s14"><span class="n">14</span>SUBSCRIPTIONS AND PURCHASES</a></li><li><a href="#s15"><span class="n">15</span>FREE TRIALS AND PROMOTIONAL OFFERS</a></li><li><a href="#s16"><span class="n">16</span>SERVICE AVAILABILITY</a></li><li><a href="#s17"><span class="n">17</span>UPDATES TO THE APPLICATION</a></li><li><a href="#s18"><span class="n">18</span>DISCLAIMER OF WARRANTIES</a></li><li><a href="#s19"><span class="n">19</span>LIMITATION OF LIABILITY</a></li><li><a href="#s20"><span class="n">20</span>PRIVACY</a></li><li><a href="#s21"><span class="n">21</span>ACCOUNT TERMINATION</a></li><li><a href="#s22"><span class="n">22</span>CHANGES TO THESE TERMS</a></li><li><a href="#s23"><span class="n">23</span>GOVERNING LAW</a></li><li><a href="#s24"><span class="n">24</span>SEVERABILITY</a></li><li><a href="#s25"><span class="n">25</span>ENTIRE AGREEMENT</a></li><li><a href="#s26"><span class="n">26</span>CONTACT</a></li></ol></nav>
+  <div>
+    <h1>Terms of Service</h1>
+    <p class="meta"><span>Last updated: <span class="todo">[DATE — à la validation finale]</span></span>
+    <a href="terms.fr.html" hreflang="fr" lang="fr">Lire en français</a></p>
+    <div class="intro"><p>Welcome to FinGames.</p><p>These Terms of Service (“Terms”) govern your access to and use of the FinGames application and its associated services, including its three sections FinMath, FinMind and FinCode, and any related features, content, websites, or services operated by [COMPANY — micro-entreprise à immatriculer] (“we”, “us”, or “our”).</p><p>By accessing or using FinGames, you agree to be bound by these Terms.</p><p>If you do not agree with these Terms, you should not use the application.</p></div>
+    <section class="doc-section" id="s01"><h2><span class="n">01</span>ABOUT THE APPLICATION</h2><p>FinGames is an educational and training application designed to help users develop skills and knowledge related to areas such as:</p><ul><li>financial mathematics;</li><li>mental calculation;</li><li>logic and quantitative reasoning;</li><li>financial markets;</li><li>macroeconomics and geopolitics;</li><li>financial products;</li><li>the financial industry;</li><li>programming and coding;</li><li>technical and financial interview preparation;</li><li>other educational topics related to finance and quantitative disciplines.</li></ul><p>FinGames may include quizzes, exercises, challenges, scores, statistics, rankings, streaks, achievements, experience points (“XP”), performance indicators, and other gamification features.</p><p>FinGames is provided primarily for educational, informational, and training purposes.</p></section>
+<section class="doc-section" id="s02"><h2><span class="n">02</span>NOT FINANCIAL OR INVESTMENT ADVICE</h2><p>FinGames does not provide financial, investment, trading, legal, tax, accounting, or professional advice.</p><p>Nothing available through the application should be interpreted as:</p><ul><li>a recommendation to buy, sell, or hold any financial instrument;</li><li>investment advice;</li><li>a trading signal;</li><li>a solicitation or offer relating to any financial product;</li><li>portfolio management advice;</li><li>a prediction of future market performance.</li></ul><p>Any examples involving financial instruments, companies, securities, currencies, derivatives, commodities, interest rates, market scenarios, or economic events are provided solely for educational purposes.</p><p>You remain solely responsible for any financial or investment decisions you make.</p><p>You should consult an appropriately qualified professional before making investment, financial, tax, or legal decisions.</p></section>
+<section class="doc-section" id="s03"><h2><span class="n">03</span>NO GUARANTEE OF ACCURACY</h2><p>We aim to provide high-quality and accurate educational content.</p><p>However, financial markets, economic data, laws, regulations, industry practices, technologies, and programming tools may change over time.</p><p>We therefore do not guarantee that all information available through FinGames is at all times:</p><ul><li>complete;</li><li>accurate;</li><li>error-free;</li><li>current;</li><li>suitable for a particular purpose.</li></ul><p>Some questions or explanations may simplify real-world concepts for educational purposes.</p><p>If you identify an error or outdated information, you may contact us at fingames.support@gmail.com.</p></section>
+<section class="doc-section" id="s04"><h2><span class="n">04</span>ELIGIBILITY</h2><p>You must be at least 16 years old, or meet the minimum legal age required in your country to use the application independently.</p><p>If you are below the age required to enter into these Terms independently, you may only use FinGames with the consent of a parent or legal guardian where applicable.</p><p>By using FinGames, you confirm that you are legally permitted to do so.</p></section>
+<section class="doc-section" id="s05"><h2><span class="n">05</span>NO ACCOUNT, AND WHERE YOUR DATA LIVES</h2><p>FinGames does not require you to create an account, and does not ask for a name, an email address, or a password.</p><p>Everything the application records — your progress, your scores, your settings and your subscription status — is stored on your device.</p><p>Two consequences follow, and you should know both:</p><ul><li>we cannot recover your progress if you delete the application, change device, or reset your device;</li><li>we cannot access, read, or restore your data, because it never reaches us.</li></ul><p>Your subscription is held by the store you purchased it from, not by us, and can be restored through that store on a new device.</p><p>If a future version introduces optional accounts, these Terms will be updated before that feature is made available.</p></section>
+<section class="doc-section" id="s06"><h2><span class="n">06</span>SCORES, XP, RANKS AND PERFORMANCE DATA</h2><p>FinGames may provide gamification and performance features including:</p><ul><li>scores;</li><li>accuracy rates;</li><li>response times;</li><li>XP;</li><li>streaks;</li><li>personal records;</li><li>achievements;</li><li>statistics;</li><li>rankings;</li><li>levels or professional-style ranks such as Trainee, Analyst, Associate, VP, Director, and MD.</li></ul><p>These features exist exclusively within the FinGames application.</p><p>A FinGames rank does not represent:</p><ul><li>an academic qualification;</li><li>a professional certification;</li><li>employment experience;</li><li>regulatory authorization;</li><li>a professional title;</li><li>competence recognized by any bank, financial institution, university, employer, regulator, or other third party.</li></ul><p>For example, achieving the rank of “Managing Director” or “MD” within FinGames does not imply that the user holds or is qualified to hold such a professional position.</p><p>Scores and performance indicators should be interpreted solely as in-app measures of performance.</p></section>
+<section class="doc-section" id="s07"><h2><span class="n">07</span>EDUCATIONAL CONTENT</h2><p>Questions, answers, explanations, exercises, challenges, illustrations, code examples, market scenarios, and other educational materials available through FinGames are intended to support learning and practice.</p><p>We may periodically:</p><ul><li>add new content;</li><li>remove content;</li><li>modify questions;</li><li>update explanations;</li><li>adjust difficulty levels;</li><li>change scoring mechanisms;</li><li>modify XP calculations;</li><li>modify rank requirements.</li></ul><p>We may make such changes without prior notice where reasonably necessary to improve the service.</p></section>
+<section class="doc-section" id="s08"><h2><span class="n">08</span>INTELLECTUAL PROPERTY</h2><p>Unless otherwise stated, the FinGames application and its content are owned by or licensed to [COMPANY — micro-entreprise à immatriculer].</p><p>This includes, where applicable:</p><ul><li>the FinGames name and branding;</li><li>FinMath, FinGames and FinCode branding;</li><li>logos;</li><li>interface designs;</li><li>graphics;</li><li>illustrations;</li><li>questions;</li><li>explanations;</li><li>databases;</li><li>software;</li><li>source code;</li><li>algorithms;</li><li>animations;</li><li>sounds;</li><li>text;</li><li>educational structures;</li><li>ranking systems;</li><li>original content.</li></ul><p>These materials may be protected by copyright, trademark, database rights, and other intellectual property laws.</p><p>Your use of FinGames does not transfer any ownership rights to you.</p></section>
+<section class="doc-section" id="s09"><h2><span class="n">09</span>LIMITED LICENSE</h2><p>We grant you a limited, personal, non-exclusive, non-transferable, revocable license to use FinGames for personal and lawful purposes in accordance with these Terms.</p><p>Unless expressly authorized by us, you may not:</p><ul><li>copy substantial portions of the application or its content;</li><li>reproduce or redistribute our question database;</li><li>sell or commercially exploit our content;</li><li>reverse engineer the application except where permitted by law;</li><li>scrape or automatically extract content;</li><li>bypass technical protections;</li><li>create unauthorized derivative products based on FinGames content;</li><li>use automated systems, bots, or scripts to manipulate scores, XP, rankings, or statistics.</li></ul></section>
+<section class="doc-section" id="s10"><h2><span class="n">10</span>ACCEPTABLE USE</h2><p>You agree not to use FinGames in any manner that:</p><ul><li>violates applicable law;</li><li>interferes with the operation or security of the application;</li><li>attempts to gain unauthorized access to systems or accounts;</li><li>introduces malicious software;</li><li>exploits vulnerabilities;</li><li>manipulates ranking or scoring systems;</li><li>impersonates another user;</li><li>infringes intellectual property rights;</li><li>abuses, threatens, or harms other users where social features are available.</li></ul><p>We may restrict or terminate access where these rules are violated.</p></section>
+<section class="doc-section" id="s11"><h2><span class="n">11</span>THIRD-PARTY INFORMATION AND SERVICES</h2><p>FinGames may display or refer to information originating from third-party sources, including financial, economic, technological, or market-related information.</p><p>FinGames may also contain links to external websites or services.</p><p>We do not control third-party websites or services and are not responsible for:</p><ul><li>their content;</li><li>accuracy;</li><li>availability;</li><li>security;</li><li>privacy practices;</li><li>products or services.</li></ul><p>Access to third-party services is subject to their own terms and policies.</p></section>
+<section class="doc-section" id="s12"><h2><span class="n">12</span>MARKET AND CURRENT-EVENT CONTENT</h2><p>Certain FinGames content may relate to financial markets, companies, economic indicators, geopolitical events, central banks, financial institutions, or current events.</p><p>Such information may become outdated quickly.</p><p>Unless specifically indicated otherwise, users should not assume that FinGames provides real-time market data.</p><p>FinGames should not be relied upon as a primary source for executing financial transactions or making investment decisions.</p></section>
+<section class="doc-section" id="s13"><h2><span class="n">13</span>PROGRAMMING AND CODE CONTENT</h2><p>FinCode may include source code, programming questions, algorithms, debugging exercises, or technical examples.</p><p>Code provided through FinGames is primarily educational.</p><p>We do not guarantee that code examples are:</p><ul><li>suitable for production environments;</li><li>secure;</li><li>optimized;</li><li>compatible with every software environment;</li><li>free from errors.</li></ul><p>Users are responsible for reviewing and testing any code before using it outside FinGames.</p></section>
+<section class="doc-section" id="s14"><h2><span class="n">14</span>SUBSCRIPTIONS AND PURCHASES</h2><p>Certain features of FinGames may be offered free of charge, while other features may require payment or subscription.</p><p>The LEARN, PRACTICE and EVALUATE sections are available to paying subscribers only. Difficulty levels above the easiest one require an active subscription.</p><p>Subscriptions renew automatically at the end of each period, at the price displayed at the time of purchase, unless cancelled at least 24 hours before the end of the current period.</p><p>Cancelling stops the next renewal; it does not shorten or refund the period already paid for, unless applicable law provides otherwise.</p><p>You can cancel at any time from your account settings in the App Store or Google Play. Deleting the application does not cancel a subscription.</p><p>Where paid services are available, pricing and billing conditions will be displayed before purchase.</p><p>Payments made through platforms such as Apple’s App Store or Google Play may also be subject to the applicable platform’s payment and subscription terms.</p><p>Unless required otherwise by applicable law, subscription management, renewals, and cancellations may need to be performed through the platform where the subscription was purchased.</p><p>We reserve the right to modify pricing for future billing periods, subject to applicable notice requirements.</p></section>
+<section class="doc-section" id="s15"><h2><span class="n">15</span>FREE TRIALS AND PROMOTIONAL OFFERS</h2><p>We may occasionally provide free trials, promotional access, discounts, or other offers.</p><p>FinGames does not currently offer a free trial. Access requires an active subscription from the outset.</p><p>Should such an offer be introduced, its scope, duration and conditions would be displayed on the subscription screen before it begins.</p><p>Eligibility requirements and duration may vary.</p><p>We reserve the right to modify or discontinue promotional offers subject to applicable law.</p><p>Unless cancelled before the end of a trial period, a trial may convert into a paid subscription where this has been clearly disclosed during registration.</p><p>If you are a consumer in the European Union, you normally have fourteen days to withdraw from a distance purchase. Because access to the paid content begins immediately, you are asked to acknowledge that this right lapses once access has started — as European consumer law allows for digital content supplied immediately.</p><p>This does not affect any mandatory right you hold under the law of your country of residence.</p></section>
+<section class="doc-section" id="s16"><h2><span class="n">16</span>SERVICE AVAILABILITY</h2><p>We aim to keep FinGames available and operational.</p><p>However, we do not guarantee uninterrupted access.</p><p>The application may occasionally be unavailable due to:</p><ul><li>maintenance;</li><li>technical issues;</li><li>infrastructure failures;</li><li>updates;</li><li>security measures;</li><li>circumstances outside our reasonable control.</li></ul><p>We may also modify, discontinue, or replace features where necessary.</p></section>
+<section class="doc-section" id="s17"><h2><span class="n">17</span>UPDATES TO THE APPLICATION</h2><p>We may release updates to improve:</p><ul><li>functionality;</li><li>security;</li><li>content;</li><li>compatibility;</li><li>design;</li><li>performance.</li></ul><p>Certain updates may be necessary for continued use of the application.</p><p>The availability of features may vary depending on device, operating system, geographic location, subscription level, or application version.</p></section>
+<section class="doc-section" id="s18"><h2><span class="n">18</span>DISCLAIMER OF WARRANTIES</h2><p>To the fullest extent permitted by applicable law, FinGames is provided on an “as is” and “as available” basis.</p><p>We do not guarantee that:</p><ul><li>the application will always be available;</li><li>all content will be error-free;</li><li>using FinGames will guarantee academic, professional, financial, or employment success;</li><li>using FinGames will result in success in interviews, examinations, trading activities, or recruitment processes;</li><li>any specific learning outcome will be achieved.</li></ul><p>Nothing in these Terms excludes warranties or rights that cannot legally be excluded under applicable consumer protection laws.</p></section>
+<section class="doc-section" id="s19"><h2><span class="n">19</span>LIMITATION OF LIABILITY</h2><p>To the fullest extent permitted by applicable law, [COMPANY — micro-entreprise à immatriculer] shall not be liable for indirect, incidental, consequential, special, or similar damages resulting from the use of or inability to use FinGames.</p><p>In particular, we are not responsible for losses resulting from financial, trading, investment, employment, academic, or professional decisions made on the basis of content accessed through FinGames.</p><p>Nothing in these Terms limits liability where such limitation is prohibited by applicable law.</p></section>
+<section class="doc-section" id="s20"><h2><span class="n">20</span>PRIVACY</h2><p>Your privacy is important to us.</p><p>Our collection and use of personal information are governed by our Privacy Policy, available within the application and at our website.</p><p>The Privacy Policy explains, among other things:</p><ul><li>what information we collect;</li><li>why we collect it;</li><li>how it is used;</li><li>how long it may be retained;</li><li>what rights users may have regarding their personal information.</li></ul><p>By using FinGames, you acknowledge that you have had the opportunity to review our Privacy Policy.</p></section>
+<section class="doc-section" id="s21"><h2><span class="n">21</span>ACCOUNT TERMINATION</h2><p>You may stop using FinGames at any time.</p><p>Where account deletion functionality is available, you may request deletion of your account through the application or by contacting fingames.support@gmail.com.</p><p>We may suspend, restrict, or terminate access where reasonably necessary, including in cases of:</p><ul><li>serious or repeated violations of these Terms;</li><li>fraudulent activity;</li><li>manipulation of application systems;</li><li>security risks;</li><li>unlawful activity.</li></ul><p>Where required by applicable law, appropriate notice will be provided.</p></section>
+<section class="doc-section" id="s22"><h2><span class="n">22</span>CHANGES TO THESE TERMS</h2><p>We may update these Terms from time to time to reflect:</p><ul><li>changes to FinGames;</li><li>new features;</li><li>changes in applicable law;</li><li>security requirements;</li><li>business or operational changes.</li></ul><p>The latest version will display an updated “Last updated” date.</p><p>Where a change materially affects your rights or obligations, we may provide additional notice where required.</p><p>Continued use of FinGames after updated Terms become effective constitutes acceptance of the updated Terms to the extent permitted by law.</p></section>
+<section class="doc-section" id="s23"><h2><span class="n">23</span>GOVERNING LAW</h2><p>These Terms shall be governed by the laws of France, without prejudice to any mandatory consumer protection rights available to you under the laws applicable in your country of residence.</p><p>Any disputes relating to these Terms shall be handled by the competent courts determined under applicable law.</p></section>
+<section class="doc-section" id="s24"><h2><span class="n">24</span>SEVERABILITY</h2><p>If any provision of these Terms is determined to be invalid, illegal, or unenforceable, the remaining provisions will continue in full force and effect.</p></section>
+<section class="doc-section" id="s25"><h2><span class="n">25</span>ENTIRE AGREEMENT</h2><p>These Terms, together with our Privacy Policy and any additional terms expressly presented for specific services, constitute the agreement between you and us regarding your use of FinGames.</p></section>
+<section class="doc-section" id="s26"><h2><span class="n">26</span>CONTACT</h2><p>If you have questions regarding these Terms, you may contact us at:</p><dl><dt></dt><dd>FinGames</dd><dt></dt><dd>[COMPANY — micro-entreprise à immatriculer]</dd><dt>Email</dt><dd>fingames.support@gmail.com</dd><dt>Address</dt><dd>[ADDRESS — siège social à confirmer]</dd><dt>Website</dt><dd>https://aaron-ada91.github.io/fingames-site</dd></dl></section>
+  </div>
+</div></article>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="28" height="28"><span class="word">FIN GAMES</span></a>
+    <p>[COMPANY — micro-entreprise à immatriculer] — France<br>
+    <a href="mailto:fingames.support@gmail.com">fingames.support@gmail.com</a></p>
+  </div>
+  <nav aria-label="Documents"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="terms.fr.html" hreflang="fr" lang="fr">Français</a></nav>
+</div></footer>
+<script>(function(){var d=document.documentElement,b=document.querySelectorAll("[data-set-theme]");function sync(){var c=d.getAttribute("data-theme")||"system";for(var i=0;i<b.length;i++)b[i].setAttribute("aria-pressed",String(b[i].getAttribute("data-set-theme")===c))}for(var i=0;i<b.length;i++)b[i].addEventListener("click",function(){var v=this.getAttribute("data-set-theme");if(v==="system")d.removeAttribute("data-theme");else d.setAttribute("data-theme",v);try{if(v==="system")localStorage.removeItem("fg-theme");else localStorage.setItem("fg-theme",v)}catch(e){}sync()});sync()})();</script>
 </body>
 </html>

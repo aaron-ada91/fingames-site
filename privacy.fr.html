@@ -1,57 +1,241 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Politique de confidentialité — FinGames</title>
-<meta name="description" content="Politique de confidentialité for FinGames.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Politique de confidentialité — FIN GAMES</title>
+<meta name="description" content="Politique de confidentialité — FIN GAMES">
+<meta name="theme-color" content="#08080A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="Politique de confidentialité — FIN GAMES">
+<meta property="og:description" content="Politique de confidentialité — FIN GAMES">
+<meta property="og:image" content="https://aaron-ada91.github.io/fingames-site/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="privacy.html">
+<link rel="alternate" hreflang="fr" href="privacy.fr.html">
+<script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("fg-theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})();</script>
 <style>
-  :root { color-scheme: dark light; --bg:#08080A; --fg:#F4F3F0; --dim:#8B8B95;
-          --line:#26262C; --accent:#FF6B00; }
-  @media (prefers-color-scheme: light) {
-    :root { --bg:#FAFAF7; --fg:#0F0F12; --dim:#6A6A73; --line:#E3E3DE; }
-  }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); line-height:1.6;
-         font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  .wrap { max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 5rem; }
-  header { display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap;
-           padding-bottom:1.25rem; border-bottom:1px solid var(--line); }
-  .brand { font-weight:700; letter-spacing:.14em; font-size:1.05rem; }
-  .brand b { color:var(--accent); }
-  nav { margin-left:auto; display:flex; gap:1.1rem; flex-wrap:wrap; }
-  nav a { color:var(--dim); text-decoration:none; font-size:.85rem; }
-  nav a:hover, nav a[aria-current] { color:var(--accent); }
-  h1 { font-size:1.9rem; letter-spacing:.02em; margin:2rem 0 .25rem; }
-  .meta { color:var(--dim); font-size:.85rem; margin:0 0 2rem; }
-  section { border-top:1px solid var(--line); padding-top:1.5rem; margin-top:1.5rem; }
-  h2 { font-size:1.02rem; letter-spacing:.04em; display:flex; gap:.75rem; margin:0 0 .75rem; }
-  .n { color:var(--accent); font-variant-numeric:tabular-nums; font-weight:700; }
-  p, li { color:var(--fg); }
-  ul { padding-left:1.1rem; }
-  dl { display:grid; grid-template-columns:auto 1fr; gap:.35rem 1rem; margin:.5rem 0 0; }
-  dt { color:var(--dim); font-size:.85rem; }
-  a { color:var(--accent); }
-  footer { margin-top:3.5rem; padding-top:1.25rem; border-top:1px solid var(--line);
-           color:var(--dim); font-size:.82rem; }
-  .todo { display:inline-block; padding:.1rem .4rem; border:1px dashed var(--accent);
-          border-radius:.25rem; color:var(--accent); font-size:.8rem; }
+@font-face{font-family:"Space Grotesk";font-weight:400;font-display:swap;src:url(assets/fonts/SpaceGrotesk-400.ttf) format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url(assets/fonts/SpaceGrotesk-500.ttf) format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url(assets/fonts/SpaceGrotesk-700.ttf) format("truetype")}
+@font-face{font-family:"JetBrains Mono";font-weight:700;font-display:swap;src:url(assets/fonts/JetBrainsMono-700.ttf) format("truetype")}
+:root{color-scheme:dark;--bg:#08080A;--surface:#121215;--sunken:#1A1A1F;--border:#26262C;--hairline:#1E1E23;
+  --fg:#F4F3F0;--dim:#A4A4AC;--faint:#828288;--accent:#FF6B00;--accent-text:#FF6B00;
+  --accent-soft:rgba(255,107,0,.14);--green:#16A34A;--green-text:#3ECF8E;--blue:#2186E0;--blue-text:#5AA8F0;
+  --bloom:.55;--shadow:0 30px 80px rgba(0,0,0,.55);}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;--bg:#FAFAF7;--surface:#FFFFFF;--sunken:#F1F1ED;--border:#DEDED8;--hairline:#E8E8E2;
+  --fg:#0F0F12;--dim:#505057;--faint:#6D6D73;--accent:#FF6B00;--accent-text:#B84D00;
+  --accent-soft:rgba(255,107,0,.10);--green:#16A34A;--green-text:#117F3A;--blue:#2186E0;--blue-text:#1C70BC;
+  --bloom:.32;--shadow:0 30px 70px rgba(15,15,18,.18);}:root:not([data-theme="dark"]) .on-dark{display:none} :root:not([data-theme="dark"]) .on-light{display:inline-block}}
+:root[data-theme="light"]{color-scheme:light;--bg:#FAFAF7;--surface:#FFFFFF;--sunken:#F1F1ED;--border:#DEDED8;--hairline:#E8E8E2;
+  --fg:#0F0F12;--dim:#505057;--faint:#6D6D73;--accent:#FF6B00;--accent-text:#B84D00;
+  --accent-soft:rgba(255,107,0,.10);--green:#16A34A;--green-text:#117F3A;--blue:#2186E0;--blue-text:#1C70BC;
+  --bloom:.32;--shadow:0 30px 70px rgba(15,15,18,.18);}
+:root[data-theme="light"] .on-dark{display:none} :root[data-theme="light"] .on-light{display:inline-block}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.65 "Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto}
+a{color:var(--accent-text)}
+svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.on-light{display:none}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:16px;top:12px;z-index:10;background:var(--surface);padding:8px 12px;border-radius:8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:72rem;margin:0 auto;padding:0 20px}
+
+/* ── En-tête ── */
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--hairline)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
+.brand img{width:36px;height:36px;filter:drop-shadow(0 0 8px rgba(255,107,0,.35))}
+.word{font-weight:700;letter-spacing:.16em;font-size:15px;white-space:nowrap}
+.menu{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.menu a{color:var(--dim);text-decoration:none;font-size:14px;font-weight:500;padding:8px 10px;border-radius:8px}
+.menu a:hover{color:var(--fg);background:var(--sunken)}
+.menu a[aria-current]{color:var(--accent-text)}
+.tools{display:flex;align-items:center;gap:8px}
+.seg{display:inline-flex;padding:3px;border:1px solid var(--border);border-radius:999px;background:var(--surface)}
+.seg a,.seg button{appearance:none;border:0;background:none;color:var(--faint);font:700 12px/1 "Space Grotesk",sans-serif;
+  letter-spacing:.08em;min-width:34px;height:30px;padding:0 10px;border-radius:999px;display:inline-flex;align-items:center;
+  justify-content:center;gap:6px;text-decoration:none;cursor:pointer}
+.seg svg{font-size:16px}
+.seg a:hover,.seg button:hover{color:var(--fg)}
+.seg [aria-current],.seg [aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-text)}
+.theme{display:none}
+.js .theme{display:inline-flex}
+@media (max-width:760px){
+  .top .wrap{gap:6px 12px;padding-top:10px;padding-bottom:6px}
+  .menu{order:3;width:100%;margin:0 -10px;overflow-x:auto}
+  .tools{margin-left:auto}
+  .theme button{min-width:30px;padding:0 7px}
+}
+
+/* ── Accueil : l'ouverture ── */
+.hero{position:relative;padding:72px 0 40px;isolation:isolate}
+.blooms{position:absolute;inset:-120px -10vw -160px;z-index:-1;pointer-events:none;opacity:var(--bloom);
+  -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent);
+  background:radial-gradient(38% 42% at 18% 30%,rgba(22,163,74,.45),transparent 70%),
+             radial-gradient(40% 46% at 78% 26%,rgba(255,107,0,.55),transparent 70%),
+             radial-gradient(42% 44% at 62% 88%,rgba(33,134,224,.45),transparent 72%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-logo{width:96px;height:96px;margin-bottom:22px;filter:drop-shadow(0 0 22px rgba(255,107,0,.4))}
+.eyebrow{margin:0 0 10px;color:var(--faint);font-size:12px;font-weight:700;letter-spacing:.22em}
+.hero h1{margin:0;font-size:clamp(44px,7vw,76px);line-height:1.02;letter-spacing:-.02em;font-weight:700}
+.lead{margin:20px 0 0;font-size:clamp(17px,2vw,20px);color:var(--dim);max-width:34rem}
+.bars{display:flex;gap:6px;margin:26px 0 0}
+.bars i{display:block;width:30px;height:3px;border-radius:9px}
+.bars i:nth-child(1){background:var(--accent)}.bars i:nth-child(2){background:var(--green)}.bars i:nth-child(3){background:var(--blue)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.soon{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;border-radius:14px;
+  background:var(--accent);color:#0A0A0B;font-weight:700;letter-spacing:.06em;font-size:14px;
+  box-shadow:0 10px 30px rgba(255,107,0,.35)}
+.soon svg{font-size:18px}
+.ghost{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:14px;
+  border:1px solid var(--border);color:var(--fg);text-decoration:none;font-weight:500;background:var(--surface)}
+.ghost:hover{border-color:var(--accent)}
+.ghost svg{font-size:17px}
+.phones{position:relative;height:620px}
+.phone{position:absolute;width:290px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
+.phone.front{right:14%;top:0;z-index:2}
+.phone.back{right:52%;top:70px;width:255px;opacity:.95;transform:rotate(-6deg)}
+@media (max-width:900px){
+  .hero{padding-top:44px}
+  .hero .wrap{grid-template-columns:1fr;gap:28px}
+  .phones{height:auto;display:flex;justify-content:center;gap:0}
+  .phone{position:relative;width:min(56vw,250px)}
+  .phone.front{right:auto;top:auto}
+  .phone.back{right:auto;top:26px;width:min(48vw,215px);margin-right:-12vw}
+}
+
+/* ── Sections ── */
+.band{padding:64px 0}
+.kicker{display:flex;align-items:center;gap:14px;margin:0 0 26px;color:var(--faint);font-size:12px;font-weight:700;letter-spacing:.22em}
+.kicker::after{content:"";flex:1;height:1px;background:var(--hairline)}
+.band h2{font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-.01em;margin:0 0 28px;max-width:40rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+.card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px;overflow:hidden}
+.world::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--c)}
+.world::after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(closest-side,var(--c),transparent);opacity:.16}
+.world img{height:52px;width:auto;margin-bottom:14px}
+.world h3{margin:0 0 8px;font-size:19px;line-height:1.3}
+.world p{margin:0;color:var(--dim)}
+.step .idx{font:700 13px "JetBrains Mono",monospace;color:var(--faint)}
+.step h3{margin:10px 0 6px;font-size:22px;letter-spacing:.12em}
+.step p{margin:0;color:var(--dim)}
+.step:nth-child(1) h3{color:var(--accent-text)}.step:nth-child(2) h3{color:var(--green-text)}.step:nth-child(3) h3{color:var(--blue-text)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.shot{margin:0;text-align:center}
+.shot img{filter:drop-shadow(0 20px 36px rgba(0,0,0,.4))}
+.shot figcaption{margin-top:12px;color:var(--dim);font-size:14px;font-weight:500}
+@media (max-width:900px){
+  .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;
+    scroll-snap-type:x mandatory;padding:4px 20px 18px;margin:0 -20px}
+  .shot{scroll-snap-align:center}
+}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.promise{grid-template-columns:1fr}}
+.promise .card{display:flex;gap:14px;align-items:flex-start}
+.promise svg{flex:none;font-size:22px;color:var(--accent-text);margin-top:2px}
+.promise strong{display:block;font-size:17px}
+.promise span{color:var(--dim);font-size:15px}
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:22px;font-weight:500;text-decoration:none}
+.more svg{font-size:16px}
+.fine{color:var(--faint);font-size:13px;max-width:52rem}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:760px){.docs{grid-template-columns:1fr}}
+.docs a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px;border-radius:14px;
+  border:1px solid var(--border);background:var(--surface);color:var(--fg);text-decoration:none;font-weight:500}
+.docs a:hover{border-color:var(--accent)}
+.docs svg{color:var(--accent-text);font-size:18px}
+
+/* ── Documents légaux ── */
+.doc{padding:48px 0 24px}
+.doc .wrap{display:grid;grid-template-columns:15rem minmax(0,46rem);gap:56px;justify-content:center}
+.toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;font-size:13.5px}
+.toc p{margin:0 0 10px;color:var(--faint);font-size:12px;font-weight:700;letter-spacing:.2em}
+.toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--hairline)}
+.toc a{display:block;padding:5px 0 5px 14px;color:var(--dim);text-decoration:none;line-height:1.35}
+.toc a:hover{color:var(--accent-text)}
+.toc .n{font:700 11px "JetBrains Mono",monospace;color:var(--faint);margin-right:6px}
+@media (max-width:960px){.doc .wrap{grid-template-columns:minmax(0,1fr)}.toc{display:none}}
+.doc h1{font-size:clamp(34px,5vw,48px);line-height:1.08;letter-spacing:-.015em;margin:0 0 12px}
+.meta{color:var(--faint);font-size:14px;margin:0 0 30px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.doc-section{border-top:1px solid var(--hairline);padding-top:26px;margin-top:26px;scroll-margin-top:84px}
+.doc-section h2{font-size:15px;letter-spacing:.08em;display:flex;gap:12px;margin:0 0 12px;line-height:1.4}
+.n{color:var(--accent-text);font:700 14px "JetBrains Mono",monospace}
+.doc p,.doc li{color:var(--fg)}
+.doc ul{padding-left:1.15rem}
+.doc li{margin:4px 0}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:10px 0 0}
+dt{color:var(--faint);font-size:14px}
+dd{margin:0}
+.intro{font-size:17px}
+
+/* ── Support ── */
+.contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin:6px 0 34px;
+  padding:26px;border-radius:18px;border:1px solid var(--accent);background:linear-gradient(135deg,var(--accent-soft),transparent 70%),var(--surface)}
+.contact strong{display:block;font-size:13px;letter-spacing:.2em;color:var(--faint)}
+.contact .addr{font:700 clamp(16px,2.4vw,20px) "JetBrains Mono",monospace;color:var(--fg);word-break:break-all}
+.contact .soon{text-decoration:none}
+
+/* ── Pied de page ── */
+.foot{margin-top:40px;border-top:1px solid var(--hairline);padding:36px 0 48px;color:var(--faint);font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
+.foot .brand img{width:28px;height:28px}
+.foot .word{font-size:13px;color:var(--fg)}
+.foot p{margin:10px 0 0}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.foot nav a{color:var(--dim);text-decoration:none}
+.foot nav a:hover{color:var(--accent-text)}
+.todo{color:var(--accent-text)}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <span class="brand">FIN<b>GAMES</b></span>
-  <nav><a href="index.html">Home</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
-</header>
-<h1>Politique de confidentialité</h1>
-<p class="meta">Dernière mise à jour : [DATE — à la validation finale] — <a href="privacy.html">Read in English</a></p>
-<p>La présente politique de confidentialité explique ce que FinGames fait — et ne fait pas — des informations vous concernant.</p><p>Elle est brève parce que l’application ne collecte presque rien.</p>
-<section><h2><span class="n">01</span>EN BREF</h2><p>FinGames ne collecte, ne transmet, ne vend ni ne partage aucune donnée personnelle.</p><p>Il n’y a ni compte, ni connexion, ni adresse électronique, ni mesure d’audience, ni publicité, ni suivi d’aucune sorte.</p><p>Tout ce que l’application sait de vous reste sur votre appareil. La seule exception est le rapport de plantage décrit à la section 4, et il ne contient rien de nominatif.</p></section><section><h2><span class="n">02</span>CE QUI EST CONSERVÉ SUR VOTRE APPAREIL</h2><p>L’application enregistre localement les éléments suivants, afin de fonctionner d’une session à l’autre :</p><ul><li>votre progression dans les parcours et le meilleur score de chaque étape validée ;</li><li>votre historique d’entraînement : dates, modes, difficultés, scores et rangs ;</li><li>vos préférences : langue, thème et réglages de rappel ;</li><li>l’état de votre abonnement et le fait que les écrans d’accueil aient été vus.</li></ul><p>Ces données ne quittent jamais votre appareil. Nous n’avons aucun serveur susceptible de les recevoir, ni aucun moyen de les lire.</p></section><section><h2><span class="n">03</span>CE QUE NOUS NE COLLECTONS PAS</h2><p>Pour être explicite, l’application ne collecte pas :</p><ul><li>vos nom, adresse électronique, numéro de téléphone ou adresse postale ;</li><li>vos contacts, photos, fichiers, micro ou caméra ;</li><li>votre position, à quelque niveau de précision que ce soit ;</li><li>un identifiant d’appareil ou un identifiant publicitaire ;</li><li>de mesure d’audience, de suivi des écrans consultés ou de profil comportemental.</li></ul><p>Aucune bibliothèque publicitaire ou de pistage n’est présente dans l’application. Le seul composant susceptible d’émettre quoi que ce soit est le rapporteur de plantage décrit à la section suivante, et il n’émet rien tant que l’application ne tombe pas en panne.</p></section><section><h2><span class="n">04</span>RAPPORTS DE PLANTAGE</h2><p>Si l’application tombe en panne, elle envoie un rapport technique afin que le défaut puisse être trouvé et corrigé. C’est le seul cas où quelque chose quitte votre appareil.</p><p>Un rapport contient ce qui a échoué et où : le message d’erreur, la position dans le code, la version du système d’exploitation et le modèle d’appareil. Il transite par Sentry, un service utilisé à cette seule fin.</p><p>Un rapport ne contient jamais :</p><ul><li>le prénom que vous avez saisi, ni aucun texte que vous auriez tapé ;</li><li>votre progression, vos scores ou votre historique ;</li><li>un identifiant d’appareil, un identifiant publicitaire ou votre adresse IP ;</li><li>les écrans que vous avez consultés, ni le temps que vous y avez passé.</li></ul><p>Rien n’est envoyé tant que l’application fonctionne. Il n’y a ni suivi de session ni mesure de performance : un rapport n’existe que parce qu’une panne a eu lieu.</p></section><section><h2><span class="n">05</span>PAIEMENTS</h2><p>Les abonnements sont gérés entièrement par l’App Store ou Google Play.</p><p>Nous ne voyons, ne recevons ni ne conservons jamais vos données de paiement. La boutique se borne à indiquer à l’application si un abonnement actif existe.</p><p>La boutique applique sa propre politique de confidentialité à l’achat, indépendamment de la présente.</p></section><section><h2><span class="n">06</span>NOTIFICATIONS</h2><p>L’application peut vous adresser des rappels d’entraînement, uniquement si vous les activez.</p><p>Ces notifications sont programmées et délivrées sur votre appareil. Aucun message ne transite par nos serveurs, et aucun n’est envoyé sans votre demande.</p><p>Vous pouvez les désactiver à tout moment, dans l’application ou dans les réglages de votre appareil.</p></section><section><h2><span class="n">07</span>ENFANTS</h2><p>FinGames s’adresse aux personnes âgées de 16 ans et plus.</p><p>L’application ne collecte aucune donnée personnelle de qui que ce soit, donc aucune donnée d’enfant. Les rapports de plantage ne portent aucune donnée nominative, quel que soit l’âge de la personne qui utilise l’application.</p></section><section><h2><span class="n">08</span>SUPPRESSION DE VOS DONNÉES</h2><p>Supprimer l’application efface tout ce qu’elle avait conservé sur votre appareil.</p><p>Il n’y a rien à nous demander et rien à effacer chez nous, puisque nous ne détenons rien.</p><p>Votre abonnement est détenu par la boutique et se gère auprès d’elle.</p></section><section><h2><span class="n">09</span>MODIFICATION DE LA PRÉSENTE POLITIQUE</h2><p>Si une version future de l’application venait à collecter quoi que ce soit, la présente politique serait mise à jour avant la publication de cette version, et le changement serait rendu visible dans l’application.</p><p>La présente politique a été mise à jour le [DATE — à la validation finale].</p></section><section><h2><span class="n">10</span>CONTACT</h2><p>Pour toute question relative à la présente politique :</p><dl><dt>Éditeur</dt><dd>[COMPANY — micro-entreprise à immatriculer]</dd><dt>Courriel</dt><dd>fingames.support@gmail.com</dd><dt>Adresse</dt><dd>[ADDRESS — siège social à confirmer]</dd></dl></section>
-<footer>
-  <p>[COMPANY — micro-entreprise à immatriculer] — France<br>
-  <a href="mailto:fingames.support@gmail.com">fingames.support@gmail.com</a></p>
-</footer>
-</div>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.fr.html"><img src="assets/logo.png" alt="" width="36" height="36"><span class="word">FIN GAMES</span></a>
+  <nav class="menu" aria-label="Accueil"><a href="index.fr.html">Accueil</a><a href="privacy.fr.html" aria-current="page">Confidentialité</a><a href="terms.fr.html">Conditions</a><a href="support.fr.html">Support</a></nav>
+  <div class="tools">
+    <nav class="seg" aria-label="Langue"><a href="privacy.html" hreflang="en" lang="en">EN</a><a href="privacy.fr.html" hreflang="fr" lang="fr" aria-current="true">FR</a></nav>
+    <div class="seg theme" role="group" aria-label="Thème"><button type="button" data-set-theme="system" aria-pressed="false" title="Système" aria-label="Thème : Système"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button><button type="button" data-set-theme="light" aria-pressed="false" title="Clair" aria-label="Thème : Clair"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button><button type="button" data-set-theme="dark" aria-pressed="false" title="Sombre" aria-label="Thème : Sombre"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div></header>
+<main id="main">
+<article class="doc"><div class="wrap">
+  <nav class="toc" aria-label="Sommaire"><p>SOMMAIRE</p><ol><li><a href="#s01"><span class="n">01</span>EN BREF</a></li><li><a href="#s02"><span class="n">02</span>CE QUI EST CONSERVÉ SUR VOTRE APPAREIL</a></li><li><a href="#s03"><span class="n">03</span>CE QUE NOUS NE COLLECTONS PAS</a></li><li><a href="#s04"><span class="n">04</span>RAPPORTS DE PLANTAGE</a></li><li><a href="#s05"><span class="n">05</span>PAIEMENTS</a></li><li><a href="#s06"><span class="n">06</span>NOTIFICATIONS</a></li><li><a href="#s07"><span class="n">07</span>ENFANTS</a></li><li><a href="#s08"><span class="n">08</span>SUPPRESSION DE VOS DONNÉES</a></li><li><a href="#s09"><span class="n">09</span>MODIFICATION DE LA PRÉSENTE POLITIQUE</a></li><li><a href="#s10"><span class="n">10</span>CONTACT</a></li></ol></nav>
+  <div>
+    <h1>Politique de confidentialité</h1>
+    <p class="meta"><span>Dernière mise à jour : <span class="todo">[DATE — à la validation finale]</span></span>
+    <a href="privacy.html" hreflang="en" lang="en">Read in English</a></p>
+    <div class="intro"><p>La présente politique de confidentialité explique ce que FinGames fait — et ne fait pas — des informations vous concernant.</p><p>Elle est brève parce que l’application ne collecte presque rien.</p></div>
+    <section class="doc-section" id="s01"><h2><span class="n">01</span>EN BREF</h2><p>FinGames ne collecte, ne transmet, ne vend ni ne partage aucune donnée personnelle.</p><p>Il n’y a ni compte, ni connexion, ni adresse électronique, ni mesure d’audience, ni publicité, ni suivi d’aucune sorte.</p><p>Tout ce que l’application sait de vous reste sur votre appareil. La seule exception est le rapport de plantage décrit à la section 4, et il ne contient rien de nominatif.</p></section>
+<section class="doc-section" id="s02"><h2><span class="n">02</span>CE QUI EST CONSERVÉ SUR VOTRE APPAREIL</h2><p>L’application enregistre localement les éléments suivants, afin de fonctionner d’une session à l’autre :</p><ul><li>votre progression dans les parcours et le meilleur score de chaque étape validée ;</li><li>votre historique d’entraînement : dates, modes, difficultés, scores et rangs ;</li><li>vos préférences : langue, thème et réglages de rappel ;</li><li>l’état de votre abonnement et le fait que les écrans d’accueil aient été vus.</li></ul><p>Ces données ne quittent jamais votre appareil. Nous n’avons aucun serveur susceptible de les recevoir, ni aucun moyen de les lire.</p></section>
+<section class="doc-section" id="s03"><h2><span class="n">03</span>CE QUE NOUS NE COLLECTONS PAS</h2><p>Pour être explicite, l’application ne collecte pas :</p><ul><li>vos nom, adresse électronique, numéro de téléphone ou adresse postale ;</li><li>vos contacts, photos, fichiers, micro ou caméra ;</li><li>votre position, à quelque niveau de précision que ce soit ;</li><li>un identifiant d’appareil ou un identifiant publicitaire ;</li><li>de mesure d’audience, de suivi des écrans consultés ou de profil comportemental.</li></ul><p>Aucune bibliothèque publicitaire ou de pistage n’est présente dans l’application. Le seul composant susceptible d’émettre quoi que ce soit est le rapporteur de plantage décrit à la section suivante, et il n’émet rien tant que l’application ne tombe pas en panne.</p></section>
+<section class="doc-section" id="s04"><h2><span class="n">04</span>RAPPORTS DE PLANTAGE</h2><p>Si l’application tombe en panne, elle envoie un rapport technique afin que le défaut puisse être trouvé et corrigé. C’est le seul cas où quelque chose quitte votre appareil.</p><p>Un rapport contient ce qui a échoué et où : le message d’erreur, la position dans le code, la version du système d’exploitation et le modèle d’appareil. Il transite par Sentry, un service utilisé à cette seule fin.</p><p>Un rapport ne contient jamais :</p><ul><li>le prénom que vous avez saisi, ni aucun texte que vous auriez tapé ;</li><li>votre progression, vos scores ou votre historique ;</li><li>un identifiant d’appareil, un identifiant publicitaire ou votre adresse IP ;</li><li>les écrans que vous avez consultés, ni le temps que vous y avez passé.</li></ul><p>Rien n’est envoyé tant que l’application fonctionne. Il n’y a ni suivi de session ni mesure de performance : un rapport n’existe que parce qu’une panne a eu lieu.</p></section>
+<section class="doc-section" id="s05"><h2><span class="n">05</span>PAIEMENTS</h2><p>Les abonnements sont gérés entièrement par l’App Store ou Google Play.</p><p>Nous ne voyons, ne recevons ni ne conservons jamais vos données de paiement. La boutique se borne à indiquer à l’application si un abonnement actif existe.</p><p>La boutique applique sa propre politique de confidentialité à l’achat, indépendamment de la présente.</p></section>
+<section class="doc-section" id="s06"><h2><span class="n">06</span>NOTIFICATIONS</h2><p>L’application peut vous adresser des rappels d’entraînement, uniquement si vous les activez.</p><p>Ces notifications sont programmées et délivrées sur votre appareil. Aucun message ne transite par nos serveurs, et aucun n’est envoyé sans votre demande.</p><p>Vous pouvez les désactiver à tout moment, dans l’application ou dans les réglages de votre appareil.</p></section>
+<section class="doc-section" id="s07"><h2><span class="n">07</span>ENFANTS</h2><p>FinGames s’adresse aux personnes âgées de 16 ans et plus.</p><p>L’application ne collecte aucune donnée personnelle de qui que ce soit, donc aucune donnée d’enfant. Les rapports de plantage ne portent aucune donnée nominative, quel que soit l’âge de la personne qui utilise l’application.</p></section>
+<section class="doc-section" id="s08"><h2><span class="n">08</span>SUPPRESSION DE VOS DONNÉES</h2><p>Supprimer l’application efface tout ce qu’elle avait conservé sur votre appareil.</p><p>Il n’y a rien à nous demander et rien à effacer chez nous, puisque nous ne détenons rien.</p><p>Votre abonnement est détenu par la boutique et se gère auprès d’elle.</p></section>
+<section class="doc-section" id="s09"><h2><span class="n">09</span>MODIFICATION DE LA PRÉSENTE POLITIQUE</h2><p>Si une version future de l’application venait à collecter quoi que ce soit, la présente politique serait mise à jour avant la publication de cette version, et le changement serait rendu visible dans l’application.</p><p>La présente politique a été mise à jour le [DATE — à la validation finale].</p></section>
+<section class="doc-section" id="s10"><h2><span class="n">10</span>CONTACT</h2><p>Pour toute question relative à la présente politique :</p><dl><dt>Éditeur</dt><dd>[COMPANY — micro-entreprise à immatriculer]</dd><dt>Courriel</dt><dd>fingames.support@gmail.com</dd><dt>Adresse</dt><dd>[ADDRESS — siège social à confirmer]</dd></dl></section>
+  </div>
+</div></article>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>
+    <a class="brand" href="index.fr.html"><img src="assets/logo.png" alt="" width="28" height="28"><span class="word">FIN GAMES</span></a>
+    <p>[COMPANY — micro-entreprise à immatriculer] — France<br>
+    <a href="mailto:fingames.support@gmail.com">fingames.support@gmail.com</a></p>
+  </div>
+  <nav aria-label="Documents"><a href="index.fr.html">Accueil</a><a href="privacy.fr.html">Confidentialité</a><a href="terms.fr.html">Conditions</a><a href="support.fr.html">Support</a><a href="privacy.html" hreflang="en" lang="en">English</a></nav>
+</div></footer>
+<script>(function(){var d=document.documentElement,b=document.querySelectorAll("[data-set-theme]");function sync(){var c=d.getAttribute("data-theme")||"system";for(var i=0;i<b.length;i++)b[i].setAttribute("aria-pressed",String(b[i].getAttribute("data-set-theme")===c))}for(var i=0;i<b.length;i++)b[i].addEventListener("click",function(){var v=this.getAttribute("data-set-theme");if(v==="system")d.removeAttribute("data-theme");else d.setAttribute("data-theme",v);try{if(v==="system")localStorage.removeItem("fg-theme");else localStorage.setItem("fg-theme",v)}catch(e){}sync()});sync()})();</script>
 </body>
 </html>
