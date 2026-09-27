@@ -5,15 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Support — FIN GAMES</title>
 <meta name="description" content="Help, subscriptions and contact for FIN GAMES.">
+<link rel="canonical" href="https://fingames.app/support.html">
+<link rel="alternate" hreflang="en" href="https://fingames.app/support.html">
+<link rel="alternate" hreflang="fr" href="https://fingames.app/support.fr.html">
+<link rel="alternate" hreflang="x-default" href="https://fingames.app/support.html">
 <meta name="theme-color" content="#08080A" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIN GAMES">
+<meta property="og:url" content="https://fingames.app/support.html">
 <meta property="og:title" content="Support — FIN GAMES">
 <meta property="og:description" content="Help, subscriptions and contact for FIN GAMES.">
-<meta property="og:image" content="https://fingames.app/assets/apple-touch-icon.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:image" content="https://fingames.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FIN GAMES — finance interview prep on iPhone">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Support — FIN GAMES">
+<meta name="twitter:description" content="Help, subscriptions and contact for FIN GAMES.">
+<meta name="twitter:image" content="https://fingames.app/assets/og-image.png">
+<meta name="twitter:image:alt" content="FIN GAMES — finance interview prep on iPhone">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="alternate" hreflang="en" href="support.html">
-<link rel="alternate" hreflang="fr" href="support.fr.html">
+
 <script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("fg-theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})();</script>
 <style>
 @font-face{font-family:"Space Grotesk";font-weight:400;font-display:swap;src:url(assets/fonts/SpaceGrotesk-400.ttf) format("truetype")}
@@ -69,14 +85,22 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .theme{display:none}
 .js .theme{display:inline-flex}
 @media (max-width:760px){
+  /* Sur un petit écran, un en-tête collant de trois lignes mangerait un tiers de la page :
+     il défile avec elle, et le menu tient sur une seule ligne qui glisse. */
+  .top{position:relative}
   .top .wrap{gap:6px 12px;padding-top:10px;padding-bottom:6px}
-  .menu{order:3;width:100%;margin:0 -10px;overflow-x:auto}
+  .menu{order:3;width:calc(100% + 20px);margin:0 -10px;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
+  .menu::-webkit-scrollbar{display:none}
+  .menu a{white-space:nowrap}
   .tools{margin-left:auto}
   .theme button{min-width:30px;padding:0 7px}
 }
 
 /* ── Accueil : l'ouverture ── */
 .hero{position:relative;padding:72px 0 40px;isolation:isolate}
+/* Le halo et les téléphones inclinés débordent à dessein : on les coupe au bord de l'écran,
+   sans jamais créer de défilement horizontal (que Safari iOS ne masque pas toujours). */
+.hero,.spot{overflow-x:clip}
 .blooms{position:absolute;inset:-120px -10vw -160px;z-index:-1;pointer-events:none;opacity:var(--bloom);
   -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent);
   background:radial-gradient(38% 42% at 18% 30%,rgba(22,163,74,.45),transparent 70%),
@@ -103,13 +127,25 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .phone{position:absolute;width:290px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
 .phone.front{right:14%;top:0;z-index:2}
 .phone.back{right:52%;top:70px;width:255px;opacity:.95;transform:rotate(-6deg)}
+.phones.alt .phone.front{right:auto;left:14%}
+.phones.alt .phone.back{right:auto;left:52%;transform:rotate(6deg)}
 @media (max-width:900px){
   .hero{padding-top:44px}
   .hero .wrap{grid-template-columns:1fr;gap:28px}
   .phones{height:auto;display:flex;justify-content:center;gap:0}
-  .phone{position:relative;width:min(56vw,250px)}
-  .phone.front{right:auto;top:auto}
-  .phone.back{right:auto;top:26px;width:min(48vw,215px);margin-right:-12vw}
+  .phone{position:relative;width:min(52vw,250px)}
+  .phone.front,.phones.alt .phone.front{right:auto;left:auto;top:auto}
+  .phone.back,.phones.alt .phone.back{right:auto;left:auto;top:26px;width:min(44vw,215px);margin-right:-10vw}
+  .phones.alt{flex-direction:row-reverse}
+  .phones.alt .phone.back{margin:0 0 0 -10vw}
+}
+/* L'entrée : le texte, puis les téléphones. Rien ne bouge pour qui a réduit les animations. */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+@keyframes rise-l{from{opacity:0;transform:translateY(30px) rotate(-6deg)}to{opacity:.95;transform:rotate(-6deg)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap>div:first-child{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero .phone.front{animation:rise .9s .12s cubic-bezier(.2,.7,.2,1) both}
+  .hero .phone.back{animation:rise-l .9s .24s cubic-bezier(.2,.7,.2,1) both}
 }
 
 /* ── Sections ── */
@@ -130,14 +166,34 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .step h3{margin:10px 0 6px;font-size:22px;letter-spacing:.12em}
 .step p{margin:0;color:var(--dim)}
 .step:nth-child(1) h3{color:var(--accent-text)}.step:nth-child(2) h3{color:var(--green-text)}.step:nth-child(3) h3{color:var(--blue-text)}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 22px;align-items:start}
 .shot{margin:0;text-align:center}
-.shot img{filter:drop-shadow(0 20px 36px rgba(0,0,0,.4))}
-.shot figcaption{margin-top:12px;color:var(--dim);font-size:14px;font-weight:500}
+.shot img{display:block;margin:0 auto;filter:drop-shadow(0 20px 36px rgba(0,0,0,.4));transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:translateY(-6px)}
+.shot figcaption{margin-top:14px;color:var(--dim);font-size:14px;font-weight:500;line-height:1.35}
+.shot figcaption b{display:block;color:var(--fg);font-size:12px;letter-spacing:.16em;margin-bottom:2px}
 @media (max-width:900px){
-  .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;
-    scroll-snap-type:x mandatory;padding:4px 20px 18px;margin:0 -20px}
+  .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(62%,250px);overflow-x:auto;
+    scroll-snap-type:x mandatory;padding:4px 20px 18px;margin:0 -20px;scroll-padding:0 20px;overscroll-behavior-x:contain}
   .shot{scroll-snap-align:center}
+}
+.swipe{display:none;margin:4px 0 0;color:var(--faint);font-size:13px}
+@media (max-width:900px){.swipe{display:block}}
+
+/* ── L'entretien : le mode qui distingue l'application ── */
+.spot .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+.spot h2{margin-bottom:16px}
+.spot .lead{margin-top:0}
+.stages{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin:28px 0 0;padding:0}
+.stages li{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.stages li span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+  border:1.5px solid var(--blue-text);color:var(--blue-text);font:700 13px "JetBrains Mono",monospace}
+.stopwatch{display:inline-flex;align-items:center;gap:10px;margin:26px 0 0;padding:10px 16px;border-radius:12px;
+  border:1px solid var(--border);background:var(--surface);color:var(--dim);font-size:15px}
+.stopwatch b{color:var(--blue-text);font:700 15px "JetBrains Mono",monospace}
+@media (max-width:900px){
+  .spot .wrap{grid-template-columns:1fr;gap:34px}
+  .spot .copy{order:-1}
 }
 .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media (max-width:900px){.promise{grid-template-columns:1fr}}
@@ -173,9 +229,10 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .doc p,.doc li{color:var(--fg)}
 .doc ul{padding-left:1.15rem}
 .doc li{margin:4px 0}
-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:10px 0 0}
+dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;margin:10px 0 0}
 dt{color:var(--faint);font-size:14px}
-dd{margin:0}
+dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:520px){dl{grid-template-columns:minmax(0,1fr);gap:2px}dd+dt{margin-top:10px}}
 .intro{font-size:17px}
 
 /* ── Support ── */
@@ -191,9 +248,27 @@ dd{margin:0}
 .foot .brand img{width:28px;height:28px}
 .foot .word{font-size:13px;color:var(--fg)}
 .foot p{margin:10px 0 0}
-.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px}
-.foot nav a{color:var(--dim);text-decoration:none}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 18px}
+.foot nav a{color:var(--dim);text-decoration:none;padding:7px 0}
 .foot nav a:hover{color:var(--accent-text)}
+.social{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0}
+.social a{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px 0 11px;border-radius:999px;
+  border:1px solid var(--border);background:var(--surface);color:var(--fg);text-decoration:none;font-size:13px;
+  transition:border-color .2s,color .2s}
+.social a:hover{border-color:var(--accent);color:var(--accent-text)}
+.social svg{font-size:17px}
+.social b{font-weight:500}
+.social em{display:none}
+.follow,.doc .follow{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0 0;padding:0}
+.doc .follow li{margin:0}
+@media (max-width:560px){.follow,.doc .follow{grid-template-columns:1fr}}
+.follow a{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;border:1px solid var(--border);
+  background:var(--surface);color:var(--fg);text-decoration:none;transition:border-color .2s}
+.follow a:hover{border-color:var(--accent)}
+.follow svg{flex:none;font-size:24px;color:var(--accent-text)}
+.follow span{display:flex;flex-direction:column;line-height:1.3}
+.follow b{font-size:15px}
+.follow em{font:700 13px "JetBrains Mono",monospace;font-style:normal;color:var(--dim)}
 .todo{color:var(--accent-text)}
 </style>
 </head>
@@ -201,7 +276,7 @@ dd{margin:0}
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="36" height="36"><span class="word">FIN GAMES</span></a>
-  <nav class="menu" aria-label="Home"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html" aria-current="page">Support</a></nav>
+  <nav class="menu" aria-label="Home"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="legal.html">Legal notice</a><a href="support.html" aria-current="page">Support</a></nav>
   <div class="tools">
     <nav class="seg" aria-label="Language"><a href="support.html" hreflang="en" lang="en" aria-current="true">EN</a><a href="support.fr.html" hreflang="fr" lang="fr">FR</a></nav>
     <div class="seg theme" role="group" aria-label="Theme"><button type="button" data-set-theme="system" aria-pressed="false" title="System" aria-label="Theme : System"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button><button type="button" data-set-theme="light" aria-pressed="false" title="Light" aria-label="Theme : Light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button><button type="button" data-set-theme="dark" aria-pressed="false" title="Dark" aria-label="Theme : Dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></div>
@@ -219,14 +294,18 @@ dd{margin:0}
       <a class="soon" href="mailto:fingames.support@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>Write to us</a>
     </div>
     <section class="doc-section"><h2><span class="n">01</span>SUBSCRIPTIONS</h2><p>Subscriptions are managed by the store you bought them from. To cancel, open the subscription settings of your App Store or Google Play account. Deleting the application does not cancel a subscription.</p></section>
-    <section class="doc-section"><h2><span class="n">02</span>YOUR DATA</h2><p>Nothing to request and nothing to erase: your progress is stored on your device, not on our servers. Deleting the application removes it.</p></section>
+    <section class="doc-section"><h2><span class="n">02</span>YOUR DATA</h2><p>Your progress is stored on your device, not on our servers: deleting the application removes it. Only subscription data is processed by our provider, RevenueCat. To access or erase it, write to us — the privacy policy explains how.</p></section>
     <section class="doc-section"><h2><span class="n">03</span>PUBLISHER</h2>
       <dl>
-        <dt>Publisher</dt><dd>[COMPANY — micro-entreprise à immatriculer]</dd>
-        <dt>Address</dt><dd>[ADDRESS — siège social à confirmer]</dd>
+        <dt>Publisher</dt><dd>FinGames — Aaron ADA (EI)</dd>
+        <dt>Address</dt><dd>67 avenue Pasteur, 91550 Paray-Vieille-Poste, France</dd>
         <dt>Email</dt><dd>fingames.support@gmail.com</dd>
         <dt>Jurisdiction</dt><dd>France</dd>
       </dl>
+    </section>
+    <section class="doc-section"><h2><span class="n">04</span>FOLLOW FIN GAMES</h2>
+      <p>News from the app, on our official accounts. For support, email remains the right channel.</p>
+      <ul class="follow"><li><a href="https://www.instagram.com/fingames_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @fingames_ (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span><b>Instagram</b><em>@fingames_</em></span></a></li><li><a href="https://www.tiktok.com/@financegames" target="_blank" rel="noopener noreferrer" aria-label="TikTok @financegames (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span><b>TikTok</b><em>@financegames</em></span></a></li></ul>
     </section>
   </div>
 </div></article>
@@ -234,10 +313,11 @@ dd{margin:0}
 <footer class="foot"><div class="wrap">
   <div>
     <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="28" height="28"><span class="word">FIN GAMES</span></a>
-    <p>[COMPANY — micro-entreprise à immatriculer] — France<br>
+    <p>FinGames — Aaron ADA (EI) — France<br>
     <a href="mailto:fingames.support@gmail.com">fingames.support@gmail.com</a></p>
+    <ul class="social"><li><a href="https://www.instagram.com/fingames_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @fingames_ (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span><b>Instagram</b><em>@fingames_</em></span></a></li><li><a href="https://www.tiktok.com/@financegames" target="_blank" rel="noopener noreferrer" aria-label="TikTok @financegames (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span><b>TikTok</b><em>@financegames</em></span></a></li></ul>
   </div>
-  <nav aria-label="Documents"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="support.fr.html" hreflang="fr" lang="fr">Français</a></nav>
+  <nav aria-label="Documents"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="legal.html">Legal notice</a><a href="support.html">Support</a><a href="support.fr.html" hreflang="fr" lang="fr">Français</a></nav>
 </div></footer>
 <script>(function(){var d=document.documentElement,b=document.querySelectorAll("[data-set-theme]");function sync(){var c=d.getAttribute("data-theme")||"system";for(var i=0;i<b.length;i++)b[i].setAttribute("aria-pressed",String(b[i].getAttribute("data-set-theme")===c))}for(var i=0;i<b.length;i++)b[i].addEventListener("click",function(){var v=this.getAttribute("data-set-theme");if(v==="system")d.removeAttribute("data-theme");else d.setAttribute("data-theme",v);try{if(v==="system")localStorage.removeItem("fg-theme");else localStorage.setItem("fg-theme",v)}catch(e){}sync()});sync()})();</script>
 </body>

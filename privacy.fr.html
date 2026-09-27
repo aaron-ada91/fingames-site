@@ -5,15 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Politique de confidentialité — FIN GAMES</title>
 <meta name="description" content="Politique de confidentialité — FIN GAMES">
+<link rel="canonical" href="https://fingames.app/privacy.fr.html">
+<link rel="alternate" hreflang="en" href="https://fingames.app/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://fingames.app/privacy.fr.html">
+<link rel="alternate" hreflang="x-default" href="https://fingames.app/privacy.html">
 <meta name="theme-color" content="#08080A" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIN GAMES">
+<meta property="og:url" content="https://fingames.app/privacy.fr.html">
 <meta property="og:title" content="Politique de confidentialité — FIN GAMES">
 <meta property="og:description" content="Politique de confidentialité — FIN GAMES">
-<meta property="og:image" content="https://fingames.app/assets/apple-touch-icon.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://fingames.app/assets/og-image.fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FIN GAMES — préparation aux entretiens finance sur iPhone">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Politique de confidentialité — FIN GAMES">
+<meta name="twitter:description" content="Politique de confidentialité — FIN GAMES">
+<meta name="twitter:image" content="https://fingames.app/assets/og-image.fr.png">
+<meta name="twitter:image:alt" content="FIN GAMES — préparation aux entretiens finance sur iPhone">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="alternate" hreflang="en" href="privacy.html">
-<link rel="alternate" hreflang="fr" href="privacy.fr.html">
+
 <script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("fg-theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})();</script>
 <style>
 @font-face{font-family:"Space Grotesk";font-weight:400;font-display:swap;src:url(assets/fonts/SpaceGrotesk-400.ttf) format("truetype")}
@@ -69,14 +85,22 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .theme{display:none}
 .js .theme{display:inline-flex}
 @media (max-width:760px){
+  /* Sur un petit écran, un en-tête collant de trois lignes mangerait un tiers de la page :
+     il défile avec elle, et le menu tient sur une seule ligne qui glisse. */
+  .top{position:relative}
   .top .wrap{gap:6px 12px;padding-top:10px;padding-bottom:6px}
-  .menu{order:3;width:100%;margin:0 -10px;overflow-x:auto}
+  .menu{order:3;width:calc(100% + 20px);margin:0 -10px;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
+  .menu::-webkit-scrollbar{display:none}
+  .menu a{white-space:nowrap}
   .tools{margin-left:auto}
   .theme button{min-width:30px;padding:0 7px}
 }
 
 /* ── Accueil : l'ouverture ── */
 .hero{position:relative;padding:72px 0 40px;isolation:isolate}
+/* Le halo et les téléphones inclinés débordent à dessein : on les coupe au bord de l'écran,
+   sans jamais créer de défilement horizontal (que Safari iOS ne masque pas toujours). */
+.hero,.spot{overflow-x:clip}
 .blooms{position:absolute;inset:-120px -10vw -160px;z-index:-1;pointer-events:none;opacity:var(--bloom);
   -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent);
   background:radial-gradient(38% 42% at 18% 30%,rgba(22,163,74,.45),transparent 70%),
@@ -103,13 +127,25 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .phone{position:absolute;width:290px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
 .phone.front{right:14%;top:0;z-index:2}
 .phone.back{right:52%;top:70px;width:255px;opacity:.95;transform:rotate(-6deg)}
+.phones.alt .phone.front{right:auto;left:14%}
+.phones.alt .phone.back{right:auto;left:52%;transform:rotate(6deg)}
 @media (max-width:900px){
   .hero{padding-top:44px}
   .hero .wrap{grid-template-columns:1fr;gap:28px}
   .phones{height:auto;display:flex;justify-content:center;gap:0}
-  .phone{position:relative;width:min(56vw,250px)}
-  .phone.front{right:auto;top:auto}
-  .phone.back{right:auto;top:26px;width:min(48vw,215px);margin-right:-12vw}
+  .phone{position:relative;width:min(52vw,250px)}
+  .phone.front,.phones.alt .phone.front{right:auto;left:auto;top:auto}
+  .phone.back,.phones.alt .phone.back{right:auto;left:auto;top:26px;width:min(44vw,215px);margin-right:-10vw}
+  .phones.alt{flex-direction:row-reverse}
+  .phones.alt .phone.back{margin:0 0 0 -10vw}
+}
+/* L'entrée : le texte, puis les téléphones. Rien ne bouge pour qui a réduit les animations. */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+@keyframes rise-l{from{opacity:0;transform:translateY(30px) rotate(-6deg)}to{opacity:.95;transform:rotate(-6deg)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap>div:first-child{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero .phone.front{animation:rise .9s .12s cubic-bezier(.2,.7,.2,1) both}
+  .hero .phone.back{animation:rise-l .9s .24s cubic-bezier(.2,.7,.2,1) both}
 }
 
 /* ── Sections ── */
@@ -130,14 +166,34 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .step h3{margin:10px 0 6px;font-size:22px;letter-spacing:.12em}
 .step p{margin:0;color:var(--dim)}
 .step:nth-child(1) h3{color:var(--accent-text)}.step:nth-child(2) h3{color:var(--green-text)}.step:nth-child(3) h3{color:var(--blue-text)}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 22px;align-items:start}
 .shot{margin:0;text-align:center}
-.shot img{filter:drop-shadow(0 20px 36px rgba(0,0,0,.4))}
-.shot figcaption{margin-top:12px;color:var(--dim);font-size:14px;font-weight:500}
+.shot img{display:block;margin:0 auto;filter:drop-shadow(0 20px 36px rgba(0,0,0,.4));transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:translateY(-6px)}
+.shot figcaption{margin-top:14px;color:var(--dim);font-size:14px;font-weight:500;line-height:1.35}
+.shot figcaption b{display:block;color:var(--fg);font-size:12px;letter-spacing:.16em;margin-bottom:2px}
 @media (max-width:900px){
-  .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;
-    scroll-snap-type:x mandatory;padding:4px 20px 18px;margin:0 -20px}
+  .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(62%,250px);overflow-x:auto;
+    scroll-snap-type:x mandatory;padding:4px 20px 18px;margin:0 -20px;scroll-padding:0 20px;overscroll-behavior-x:contain}
   .shot{scroll-snap-align:center}
+}
+.swipe{display:none;margin:4px 0 0;color:var(--faint);font-size:13px}
+@media (max-width:900px){.swipe{display:block}}
+
+/* ── L'entretien : le mode qui distingue l'application ── */
+.spot .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+.spot h2{margin-bottom:16px}
+.spot .lead{margin-top:0}
+.stages{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin:28px 0 0;padding:0}
+.stages li{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.stages li span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+  border:1.5px solid var(--blue-text);color:var(--blue-text);font:700 13px "JetBrains Mono",monospace}
+.stopwatch{display:inline-flex;align-items:center;gap:10px;margin:26px 0 0;padding:10px 16px;border-radius:12px;
+  border:1px solid var(--border);background:var(--surface);color:var(--dim);font-size:15px}
+.stopwatch b{color:var(--blue-text);font:700 15px "JetBrains Mono",monospace}
+@media (max-width:900px){
+  .spot .wrap{grid-template-columns:1fr;gap:34px}
+  .spot .copy{order:-1}
 }
 .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media (max-width:900px){.promise{grid-template-columns:1fr}}
@@ -173,9 +229,10 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 .doc p,.doc li{color:var(--fg)}
 .doc ul{padding-left:1.15rem}
 .doc li{margin:4px 0}
-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:10px 0 0}
+dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;margin:10px 0 0}
 dt{color:var(--faint);font-size:14px}
-dd{margin:0}
+dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:520px){dl{grid-template-columns:minmax(0,1fr);gap:2px}dd+dt{margin-top:10px}}
 .intro{font-size:17px}
 
 /* ── Support ── */
@@ -191,9 +248,27 @@ dd{margin:0}
 .foot .brand img{width:28px;height:28px}
 .foot .word{font-size:13px;color:var(--fg)}
 .foot p{margin:10px 0 0}
-.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px}
-.foot nav a{color:var(--dim);text-decoration:none}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 18px}
+.foot nav a{color:var(--dim);text-decoration:none;padding:7px 0}
 .foot nav a:hover{color:var(--accent-text)}
+.social{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0}
+.social a{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px 0 11px;border-radius:999px;
+  border:1px solid var(--border);background:var(--surface);color:var(--fg);text-decoration:none;font-size:13px;
+  transition:border-color .2s,color .2s}
+.social a:hover{border-color:var(--accent);color:var(--accent-text)}
+.social svg{font-size:17px}
+.social b{font-weight:500}
+.social em{display:none}
+.follow,.doc .follow{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0 0;padding:0}
+.doc .follow li{margin:0}
+@media (max-width:560px){.follow,.doc .follow{grid-template-columns:1fr}}
+.follow a{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;border:1px solid var(--border);
+  background:var(--surface);color:var(--fg);text-decoration:none;transition:border-color .2s}
+.follow a:hover{border-color:var(--accent)}
+.follow svg{flex:none;font-size:24px;color:var(--accent-text)}
+.follow span{display:flex;flex-direction:column;line-height:1.3}
+.follow b{font-size:15px}
+.follow em{font:700 13px "JetBrains Mono",monospace;font-style:normal;color:var(--dim)}
 .todo{color:var(--accent-text)}
 </style>
 </head>
@@ -201,7 +276,7 @@ dd{margin:0}
 <a class="skip" href="#main">Aller au contenu</a>
 <header class="top"><div class="wrap">
   <a class="brand" href="index.fr.html"><img src="assets/logo.png" alt="" width="36" height="36"><span class="word">FIN GAMES</span></a>
-  <nav class="menu" aria-label="Accueil"><a href="index.fr.html">Accueil</a><a href="privacy.fr.html" aria-current="page">Confidentialité</a><a href="terms.fr.html">Conditions</a><a href="support.fr.html">Support</a></nav>
+  <nav class="menu" aria-label="Accueil"><a href="index.fr.html">Accueil</a><a href="privacy.fr.html" aria-current="page">Confidentialité</a><a href="terms.fr.html">Conditions</a><a href="legal.fr.html">Mentions légales</a><a href="support.fr.html">Support</a></nav>
   <div class="tools">
     <nav class="seg" aria-label="Langue"><a href="privacy.html" hreflang="en" lang="en">EN</a><a href="privacy.fr.html" hreflang="fr" lang="fr" aria-current="true">FR</a></nav>
     <div class="seg theme" role="group" aria-label="Thème"><button type="button" data-set-theme="system" aria-pressed="false" title="Système" aria-label="Thème : Système"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button><button type="button" data-set-theme="light" aria-pressed="false" title="Clair" aria-label="Thème : Clair"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button><button type="button" data-set-theme="dark" aria-pressed="false" title="Sombre" aria-label="Thème : Sombre"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></div>
@@ -209,32 +284,39 @@ dd{margin:0}
 </div></header>
 <main id="main">
 <article class="doc"><div class="wrap">
-  <nav class="toc" aria-label="Sommaire"><p>SOMMAIRE</p><ol><li><a href="#s01"><span class="n">01</span>EN BREF</a></li><li><a href="#s02"><span class="n">02</span>CE QUI EST CONSERVÉ SUR VOTRE APPAREIL</a></li><li><a href="#s03"><span class="n">03</span>CE QUE NOUS NE COLLECTONS PAS</a></li><li><a href="#s04"><span class="n">04</span>RAPPORTS DE PLANTAGE</a></li><li><a href="#s05"><span class="n">05</span>PAIEMENTS</a></li><li><a href="#s06"><span class="n">06</span>NOTIFICATIONS</a></li><li><a href="#s07"><span class="n">07</span>ENFANTS</a></li><li><a href="#s08"><span class="n">08</span>SUPPRESSION DE VOS DONNÉES</a></li><li><a href="#s09"><span class="n">09</span>MODIFICATION DE LA PRÉSENTE POLITIQUE</a></li><li><a href="#s10"><span class="n">10</span>CONTACT</a></li></ol></nav>
+  <nav class="toc" aria-label="Sommaire"><p>SOMMAIRE</p><ol><li><a href="#s01"><span class="n">01</span>RESPONSABLE DU TRAITEMENT</a></li><li><a href="#s02"><span class="n">02</span>EN BREF</a></li><li><a href="#s03"><span class="n">03</span>DONNÉES CONSERVÉES UNIQUEMENT SUR VOTRE APPAREIL</a></li><li><a href="#s04"><span class="n">04</span>DONNÉES TRANSMISES À REVENUECAT (ABONNEMENTS)</a></li><li><a href="#s05"><span class="n">05</span>ACHATS PAR L’INTERMÉDIAIRE D’APPLE</a></li><li><a href="#s06"><span class="n">06</span>RAPPORTS DE PLANTAGE</a></li><li><a href="#s07"><span class="n">07</span>NOTIFICATIONS</a></li><li><a href="#s08"><span class="n">08</span>CE QUE NOUS NE FAISONS PAS</a></li><li><a href="#s09"><span class="n">09</span>FINALITÉS ET BASES LÉGALES</a></li><li><a href="#s10"><span class="n">10</span>DESTINATAIRES ET TRANSFERTS HORS DE L’UNION EUROPÉENNE</a></li><li><a href="#s11"><span class="n">11</span>DURÉES DE CONSERVATION</a></li><li><a href="#s12"><span class="n">12</span>VOS DROITS</a></li><li><a href="#s13"><span class="n">13</span>SUPPORT ET SITE WEB</a></li><li><a href="#s14"><span class="n">14</span>MINEURS</a></li><li><a href="#s15"><span class="n">15</span>MODIFICATION DE LA PRÉSENTE POLITIQUE</a></li><li><a href="#s16"><span class="n">16</span>CONTACT</a></li></ol></nav>
   <div>
     <h1>Politique de confidentialité</h1>
-    <p class="meta"><span>Dernière mise à jour : <span class="todo">[DATE — à la validation finale]</span></span>
+    <p class="meta"><span>Dernière mise à jour : <span>27 septembre 2026</span></span>
     <a href="privacy.html" hreflang="en" lang="en">Read in English</a></p>
-    <div class="intro"><p>La présente politique de confidentialité explique ce que FinGames fait — et ne fait pas — des informations vous concernant.</p><p>Elle est brève parce que l’application ne collecte presque rien.</p></div>
-    <section class="doc-section" id="s01"><h2><span class="n">01</span>EN BREF</h2><p>FinGames ne collecte, ne transmet, ne vend ni ne partage aucune donnée personnelle.</p><p>Il n’y a ni compte, ni connexion, ni adresse électronique, ni mesure d’audience, ni publicité, ni suivi d’aucune sorte.</p><p>Tout ce que l’application sait de vous reste sur votre appareil. La seule exception est le rapport de plantage décrit à la section 4, et il ne contient rien de nominatif.</p></section>
-<section class="doc-section" id="s02"><h2><span class="n">02</span>CE QUI EST CONSERVÉ SUR VOTRE APPAREIL</h2><p>L’application enregistre localement les éléments suivants, afin de fonctionner d’une session à l’autre :</p><ul><li>votre progression dans les parcours et le meilleur score de chaque étape validée ;</li><li>votre historique d’entraînement : dates, modes, difficultés, scores et rangs ;</li><li>vos préférences : langue, thème et réglages de rappel ;</li><li>l’état de votre abonnement et le fait que les écrans d’accueil aient été vus.</li></ul><p>Ces données ne quittent jamais votre appareil. Nous n’avons aucun serveur susceptible de les recevoir, ni aucun moyen de les lire.</p></section>
-<section class="doc-section" id="s03"><h2><span class="n">03</span>CE QUE NOUS NE COLLECTONS PAS</h2><p>Pour être explicite, l’application ne collecte pas :</p><ul><li>vos nom, adresse électronique, numéro de téléphone ou adresse postale ;</li><li>vos contacts, photos, fichiers, micro ou caméra ;</li><li>votre position, à quelque niveau de précision que ce soit ;</li><li>un identifiant d’appareil ou un identifiant publicitaire ;</li><li>de mesure d’audience, de suivi des écrans consultés ou de profil comportemental.</li></ul><p>Aucune bibliothèque publicitaire ou de pistage n’est présente dans l’application. Le seul composant susceptible d’émettre quoi que ce soit est le rapporteur de plantage décrit à la section suivante, et il n’émet rien tant que l’application ne tombe pas en panne.</p></section>
-<section class="doc-section" id="s04"><h2><span class="n">04</span>RAPPORTS DE PLANTAGE</h2><p>Si l’application tombe en panne, elle envoie un rapport technique afin que le défaut puisse être trouvé et corrigé. C’est le seul cas où quelque chose quitte votre appareil.</p><p>Un rapport contient ce qui a échoué et où : le message d’erreur, la position dans le code, la version du système d’exploitation et le modèle d’appareil. Il transite par Sentry, un service utilisé à cette seule fin.</p><p>Un rapport ne contient jamais :</p><ul><li>le prénom que vous avez saisi, ni aucun texte que vous auriez tapé ;</li><li>votre progression, vos scores ou votre historique ;</li><li>un identifiant d’appareil, un identifiant publicitaire ou votre adresse IP ;</li><li>les écrans que vous avez consultés, ni le temps que vous y avez passé.</li></ul><p>Rien n’est envoyé tant que l’application fonctionne. Il n’y a ni suivi de session ni mesure de performance : un rapport n’existe que parce qu’une panne a eu lieu.</p></section>
-<section class="doc-section" id="s05"><h2><span class="n">05</span>PAIEMENTS</h2><p>Les abonnements sont gérés entièrement par l’App Store ou Google Play.</p><p>Nous ne voyons, ne recevons ni ne conservons jamais vos données de paiement. La boutique se borne à indiquer à l’application si un abonnement actif existe.</p><p>La boutique applique sa propre politique de confidentialité à l’achat, indépendamment de la présente.</p></section>
-<section class="doc-section" id="s06"><h2><span class="n">06</span>NOTIFICATIONS</h2><p>L’application peut vous adresser des rappels d’entraînement, uniquement si vous les activez.</p><p>Ces notifications sont programmées et délivrées sur votre appareil. Aucun message ne transite par nos serveurs, et aucun n’est envoyé sans votre demande.</p><p>Vous pouvez les désactiver à tout moment, dans l’application ou dans les réglages de votre appareil.</p></section>
-<section class="doc-section" id="s07"><h2><span class="n">07</span>ENFANTS</h2><p>FinGames s’adresse aux personnes âgées de 16 ans et plus.</p><p>L’application ne collecte aucune donnée personnelle de qui que ce soit, donc aucune donnée d’enfant. Les rapports de plantage ne portent aucune donnée nominative, quel que soit l’âge de la personne qui utilise l’application.</p></section>
-<section class="doc-section" id="s08"><h2><span class="n">08</span>SUPPRESSION DE VOS DONNÉES</h2><p>Supprimer l’application efface tout ce qu’elle avait conservé sur votre appareil.</p><p>Il n’y a rien à nous demander et rien à effacer chez nous, puisque nous ne détenons rien.</p><p>Votre abonnement est détenu par la boutique et se gère auprès d’elle.</p></section>
-<section class="doc-section" id="s09"><h2><span class="n">09</span>MODIFICATION DE LA PRÉSENTE POLITIQUE</h2><p>Si une version future de l’application venait à collecter quoi que ce soit, la présente politique serait mise à jour avant la publication de cette version, et le changement serait rendu visible dans l’application.</p><p>La présente politique a été mise à jour le [DATE — à la validation finale].</p></section>
-<section class="doc-section" id="s10"><h2><span class="n">10</span>CONTACT</h2><p>Pour toute question relative à la présente politique :</p><dl><dt>Éditeur</dt><dd>[COMPANY — micro-entreprise à immatriculer]</dd><dt>Courriel</dt><dd>fingames.support@gmail.com</dd><dt>Adresse</dt><dd>[ADDRESS — siège social à confirmer]</dd></dl></section>
+    <div class="intro"><p>La présente politique de confidentialité explique quelles données FinGames traite, où elles sont conservées, qui les reçoit, pourquoi, pendant combien de temps, et quels sont vos droits.</p><p>Elle distingue quatre situations : les données qui restent sur votre appareil, celles qui sont transmises à notre prestataire d’abonnement, celles qu’Apple traite pour vos achats, et celles qui ne seraient transmises que si un composant aujourd’hui désactivé était activé.</p></div>
+    <section class="doc-section" id="s01"><h2><span class="n">01</span>RESPONSABLE DU TRAITEMENT</h2><p>Le responsable des traitements décrits dans la présente politique est FinGames — Aaron ADA (EI), 67 avenue Pasteur, 91550 Paray-Vieille-Poste, France.</p><p>Pour toute question sur vos données ou pour exercer vos droits, écrivez à fingames.support@gmail.com.</p></section>
+<section class="doc-section" id="s02"><h2><span class="n">02</span>EN BREF</h2><ul><li>Il n’y a ni compte, ni connexion, ni bibliothèque de publicité, de mesure d’audience ou de pistage.</li><li>Votre prénom, votre avatar, vos réponses, votre progression et vos résultats sont conservés uniquement sur votre appareil. Nous n’avons aucun serveur qui les reçoive, ni aucun moyen de les lire.</li><li>Notre prestataire d’abonnement RevenueCat reçoit des données techniques et d’achat, dont un identifiant anonyme et un identifiant d’appareil, afin de vérifier si votre abonnement est actif. Ces données sont traitées aux États-Unis.</li><li>Apple traite votre paiement selon sa propre politique de confidentialité. Nous ne recevons jamais vos données de paiement.</li><li>Un outil de rapport de plantage (Sentry) est intégré à l’application mais il est actuellement désactivé : il n’envoie rien.</li><li>Nous ne vendons pas vos données et ne les utilisons pas à des fins publicitaires.</li></ul></section>
+<section class="doc-section" id="s03"><h2><span class="n">03</span>DONNÉES CONSERVÉES UNIQUEMENT SUR VOTRE APPAREIL</h2><p>L’application enregistre les éléments suivants sur votre appareil, afin de fonctionner d’une session à l’autre :</p><ul><li>le prénom que vous choisissez de saisir (il peut rester vide) et l’avatar que vous choisissez parmi les illustrations fournies — aucune photo n’est jamais demandée ;</li><li>vos réponses aux questions du premier lancement : votre situation, votre objectif, les entreprises que vous visez, le niveau que vous déclarez et la façon dont vous avez connu l’application ;</li><li>le test de niveau : le fait que vous l’ayez terminé, passé ou quitté, et le niveau qu’il a mesuré ;</li><li>votre progression : leçons et vérifications terminées, meilleurs scores, points d’expérience et ligue — la ligue est calculée sur votre appareil et n’est partagée avec personne ;</li><li>votre historique d’entraînement et d’évaluation : dates, modes, métiers et entreprises choisis, difficultés, scores, taux de réussite et temps de réponse ;</li><li>vos préférences : langue, thème, son, objectif quotidien et heure de votre rappel d’entraînement ;</li><li>l’état de votre abonnement tel que la boutique l’a confirmé en dernier, et le fait que les écrans d’introduction aient été vus ;</li><li>des données techniques conservées par le composant d’abonnement (RevenueCat) : l’identifiant anonyme décrit à la section 4 et une copie en cache de l’état de votre abonnement et des offres.</li></ul><p>Aucune de ces données ne nous est transmise. Le test de niveau et vos scores sont calculés sur votre appareil et servent uniquement à adapter ce que l’application vous affiche ; ils ne produisent aucune décision ayant des effets juridiques ou des effets significatifs similaires.</p><p>Supprimer l’application efface toutes ces données de votre appareil.</p></section>
+<section class="doc-section" id="s04"><h2><span class="n">04</span>DONNÉES TRANSMISES À REVENUECAT (ABONNEMENTS)</h2><p>Pour savoir si vous disposez d’un abonnement actif, l’application utilise RevenueCat, un service fourni par RevenueCat, Inc. (États-Unis), qui agit en tant que sous-traitant. L’application contacte RevenueCat à son lancement, lorsqu’elle revient au premier plan, lorsque la page d’abonnement charge les offres, lors d’un achat et lors d’une restauration d’achat.</p><p>RevenueCat reçoit alors :</p><ul><li>un identifiant anonyme généré au hasard par l’application sur votre appareil (il ne contient aucune information vous concernant) ;</li><li>l’identifiant pour les éditeurs (IDFV) qu’iOS attribue à votre appareil pour les applications d’un même éditeur ;</li><li>le modèle de votre appareil, la version d’iOS, la version de l’application et les langues configurées sur votre appareil ;</li><li>le pays de votre compte App Store et des indicateurs techniques sur l’environnement d’achat ;</li><li>l’état de l’autorisation de suivi d’iOS (l’application ne demande jamais cette autorisation et ne vous suit pas) ;</li><li>lors d’un achat ou d’une restauration : les données de transaction fournies par Apple — produit acheté, prix et devise, dates d’achat et d’expiration, identifiants de transaction ;</li><li>votre adresse IP, qui est techniquement transmise avec toute connexion à un service en ligne.</li></ul><p>RevenueCat ne reçoit ni votre prénom, ni votre avatar, ni vos réponses, ni votre progression, ni vos scores, ni votre historique. Nous ne transmettons à RevenueCat aucun identifiant propre, aucune adresse électronique et aucun nom.</p><p>Cela se produit que vous soyez abonné ou non : sans cela, l’application ne pourrait pas savoir si votre abonnement est actif.</p><p>L’identifiant d’appareil (IDFV) est envoyé automatiquement par le logiciel de RevenueCat ; l’application ne dispose d’aucun réglage pour l’empêcher. Nous ne l’utilisons pas nous-mêmes, et ni lui ni aucune autre donnée citée ici ne sert à la publicité ou à vous suivre.</p><p>Par le service de RevenueCat, nous pouvons consulter les enregistrements qu’il conserve pour notre application — l’identifiant anonyme, les achats et les données techniques ci-dessus — ainsi que des statistiques sur nos abonnements, comme le nombre d’abonnés, les renouvellements, les résiliations et le chiffre d’affaires. Rien de tout cela ne nous indique qui vous êtes.</p><p>Bien que l’identifiant soit anonyme, ces données peuvent se rapporter à vous indirectement et sont donc traitées comme des données personnelles.</p></section>
+<section class="doc-section" id="s05"><h2><span class="n">05</span>ACHATS PAR L’INTERMÉDIAIRE D’APPLE</h2><p>Les abonnements sont vendus par l’intermédiaire de l’App Store d’Apple. Apple traite votre paiement, votre compte Apple et votre historique d’achat en tant que responsable de traitement indépendant, selon sa propre politique de confidentialité :</p><dl><dt>Apple</dt><dd>https://www.apple.com/legal/privacy/</dd></dl><p>Nous ne voyons, ne recevons ni ne conservons jamais vos données de paiement, votre compte Apple ou votre adresse électronique.</p></section>
+<section class="doc-section" id="s06"><h2><span class="n">06</span>RAPPORTS DE PLANTAGE</h2><p>L’application intègre un outil de rapport de plantage fourni par Sentry. Il est actuellement désactivé et n’envoie aucune donnée.</p><p>Si nous l’activons dans une version future, la présente politique sera mise à jour avant la publication de cette version, en précisant où les rapports sont hébergés et combien de temps ils sont conservés. Il ne signalerait alors que les pannes : l’erreur, l’endroit du code où elle survient, le modèle d’appareil et les versions du système et de l’application.</p><p>Un rapport de plantage ne contiendrait jamais :</p><ul><li>le prénom que vous avez saisi, ni aucun texte que vous auriez tapé ;</li><li>votre progression, vos scores ou votre historique ;</li><li>les écrans que vous avez consultés, ni le temps que vous y avez passé.</li></ul><p>L’outil est configuré pour ne joindre à un rapport ni votre adresse IP ni aucun identifiant d’utilisateur. Comme pour toute connexion, l’adresse IP serait néanmoins transmise pour l’établir.</p></section>
+<section class="doc-section" id="s07"><h2><span class="n">07</span>NOTIFICATIONS</h2><p>Si vous activez les rappels d’entraînement, iOS vous demande votre autorisation et le rappel est programmé sur votre appareil. Il ne passe par aucun serveur : l’application n’utilise pas de notifications à distance (push).</p><p>Vous pouvez désactiver les rappels à tout moment, dans l’application ou dans les réglages de votre appareil.</p></section>
+<section class="doc-section" id="s08"><h2><span class="n">08</span>CE QUE NOUS NE FAISONS PAS</h2><ul><li>aucune publicité, et aucun identifiant publicitaire (IDFA) ;</li><li>aucune analyse d’utilisation, aucune mesure d’audience ni aucun suivi des écrans consultés : nous ne mesurons pas ce que vous faites dans l’application — les seules statistiques que nous recevons portent sur les abonnements (section 4) ;</li><li>aucun pistage entre applications ou sites, et aucune vente ou location de données ;</li><li>aucun accès à vos contacts, photos, fichiers, appareil photo, micro ou position.</li></ul></section>
+<section class="doc-section" id="s09"><h2><span class="n">09</span>FINALITÉS ET BASES LÉGALES</h2><ul><li>Vérifier, fournir et restaurer votre abonnement (RevenueCat, section 4) : exécution du contrat que vous concluez en vous abonnant (article 6, paragraphe 1, point b, du RGPD) et, avant tout abonnement, notre intérêt légitime à savoir si l’accès doit être ouvert (article 6, paragraphe 1, point f, du RGPD).</li><li>Statistiques d’abonnement fournies par RevenueCat (section 4), utilisées pour gérer notre activité : notre intérêt légitime à l’exploiter et à la gérer (article 6, paragraphe 1, point f, du RGPD).</li><li>Répondre à vos messages adressés au support (section 13) : notre intérêt légitime à vous répondre (article 6, paragraphe 1, point f, du RGPD), ou l’exécution du contrat lorsque votre message concerne votre abonnement.</li><li>Rapports de plantage, s’ils sont activés à l’avenir (section 6) : la base légale sera indiquée dans la politique mise à jour.</li></ul><p>Les données conservées uniquement sur votre appareil (section 3) ne nous sont pas transmises : elles servent sur votre appareil au seul fonctionnement de l’application.</p></section>
+<section class="doc-section" id="s10"><h2><span class="n">10</span>DESTINATAIRES ET TRANSFERTS HORS DE L’UNION EUROPÉENNE</h2><p>Le seul destinataire des données décrites à la section 4 est RevenueCat, Inc., notre sous-traitant, ainsi que les sous-traitants auxquels il recourt pour fournir son service (hébergement, bases de données, journalisation, supervision et, selon son accord de traitement des données, fournisseurs de services d’intelligence artificielle), situés pour la plupart aux États-Unis. La liste à jour figure dans l’accord de traitement des données de RevenueCat :</p><dl><dt>RevenueCat</dt><dd>https://www.revenuecat.com/dpa</dd></dl><p>Ces données sont donc transférées aux États-Unis. Le transfert est encadré par les clauses contractuelles types adoptées par la Commission européenne, intégrées à l’accord de traitement des données de RevenueCat. Vous pouvez obtenir une copie de ces garanties en nous écrivant.</p><p>Deux autres prestataires reçoivent des données dans des cas plus limités, décrits à la section 13 : Google, qui héberge la messagerie du support et peut traiter vos messages aux États-Unis selon ses propres conditions, et GitHub, qui héberge notre site web.</p></section>
+<section class="doc-section" id="s11"><h2><span class="n">11</span>DURÉES DE CONSERVATION</h2><ul><li>Données conservées sur votre appareil : jusqu’à ce que vous les effaciez ou supprimiez l’application.</li><li>Données traitées par RevenueCat : durée de conservation en cours de finalisation — précisions sur demande à fingames.support@gmail.com. À la fin de notre contrat avec RevenueCat, celui-ci supprime ou restitue ces données sur notre demande, conformément à son accord de traitement des données.</li><li>Messages adressés au support : durée de conservation en cours de finalisation — précisions sur demande à fingames.support@gmail.com.</li><li>Données traitées par Apple : selon la politique de confidentialité d’Apple.</li></ul></section>
+<section class="doc-section" id="s12"><h2><span class="n">12</span>VOS DROITS</h2><p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d’un droit d’accès à vos données, de rectification, d’effacement, de limitation du traitement, d’opposition aux traitements fondés sur notre intérêt légitime et, lorsqu’il s’applique, du droit à la portabilité.</p><p>Pour les données conservées sur votre appareil, vous exercez ces droits directement : vous pouvez les modifier dans l’application, et supprimer l’application les efface. Nous n’en détenons aucune copie.</p><p>Pour les données traitées par RevenueCat, écrivez à fingames.support@gmail.com. Comme nous ne connaissons pas votre identité, nous avons besoin d’un moyen de retrouver l’enregistrement correspondant : écrivez-nous et nous vous indiquerons la procédure, en cours de finalisation avec notre prestataire.</p><p>Nous répondons dans un délai d’un mois, qui peut être prolongé dans les cas prévus par le RGPD.</p><p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la Commission nationale de l’informatique et des libertés (CNIL) ou de l’autorité de votre pays de résidence :</p><dl><dt>CNIL</dt><dd>https://www.cnil.fr</dd></dl></section>
+<section class="doc-section" id="s13"><h2><span class="n">13</span>SUPPORT ET SITE WEB</h2><p>Si vous écrivez à fingames.support@gmail.com, nous recevons votre adresse électronique et le contenu de votre message, qui sont traités par notre fournisseur de messagerie, Google (Gmail), et servent uniquement à vous répondre.</p><p>Notre site web (https://fingames.app) est hébergé par GitHub Pages (GitHub, Inc., États-Unis ; GitHub B.V., Pays-Bas, pour les visiteurs de l’Espace économique européen), qui reçoit l’adresse IP des visiteurs lorsqu’il sert les pages, selon sa propre déclaration de confidentialité. Le site n’utilise ni cookie ni mesure d’audience ; il retient seulement, dans votre navigateur, le thème d’affichage que vous choisissez.</p></section>
+<section class="doc-section" id="s14"><h2><span class="n">14</span>MINEURS</h2><p>FinGames s’adresse aux personnes âgées de 16 ans et plus. Elle ne vise pas les enfants, et nous ne traitons pas sciemment de données concernant des enfants de moins de cet âge.</p><p>Nous ne vous demandons ni votre âge ni votre identité. Les achats sont soumis aux contrôles parentaux de votre compte Apple (comme « Demander l’autorisation d’acheter »).</p></section>
+<section class="doc-section" id="s15"><h2><span class="n">15</span>MODIFICATION DE LA PRÉSENTE POLITIQUE</h2><p>Si l’application se met à traiter de nouvelles données ou recourt à un nouveau prestataire, la présente politique sera mise à jour avant la publication de cette version, et le changement sera signalé dans l’application.</p><p>La présente politique a été mise à jour le 27 septembre 2026.</p></section>
+<section class="doc-section" id="s16"><h2><span class="n">16</span>CONTACT</h2><p>Pour toute question relative à la présente politique :</p><dl><dt>Responsable du traitement</dt><dd>FinGames — Aaron ADA (EI)</dd><dt>Courriel</dt><dd>fingames.support@gmail.com</dd><dt>Adresse</dt><dd>67 avenue Pasteur, 91550 Paray-Vieille-Poste, France</dd></dl></section>
   </div>
 </div></article>
 </main>
 <footer class="foot"><div class="wrap">
   <div>
     <a class="brand" href="index.fr.html"><img src="assets/logo.png" alt="" width="28" height="28"><span class="word">FIN GAMES</span></a>
-    <p>[COMPANY — micro-entreprise à immatriculer] — France<br>
+    <p>FinGames — Aaron ADA (EI) — France<br>
     <a href="mailto:fingames.support@gmail.com">fingames.support@gmail.com</a></p>
+    <ul class="social"><li><a href="https://www.instagram.com/fingames_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @fingames_ (s’ouvre dans un nouvel onglet)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span><b>Instagram</b><em>@fingames_</em></span></a></li><li><a href="https://www.tiktok.com/@financegames" target="_blank" rel="noopener noreferrer" aria-label="TikTok @financegames (s’ouvre dans un nouvel onglet)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span><b>TikTok</b><em>@financegames</em></span></a></li></ul>
   </div>
-  <nav aria-label="Documents"><a href="index.fr.html">Accueil</a><a href="privacy.fr.html">Confidentialité</a><a href="terms.fr.html">Conditions</a><a href="support.fr.html">Support</a><a href="privacy.html" hreflang="en" lang="en">English</a></nav>
+  <nav aria-label="Documents"><a href="index.fr.html">Accueil</a><a href="privacy.fr.html">Confidentialité</a><a href="terms.fr.html">Conditions</a><a href="legal.fr.html">Mentions légales</a><a href="support.fr.html">Support</a><a href="privacy.html" hreflang="en" lang="en">English</a></nav>
 </div></footer>
 <script>(function(){var d=document.documentElement,b=document.querySelectorAll("[data-set-theme]");function sync(){var c=d.getAttribute("data-theme")||"system";for(var i=0;i<b.length;i++)b[i].setAttribute("aria-pressed",String(b[i].getAttribute("data-set-theme")===c))}for(var i=0;i<b.length;i++)b[i].addEventListener("click",function(){var v=this.getAttribute("data-set-theme");if(v==="system")d.removeAttribute("data-theme");else d.setAttribute("data-theme",v);try{if(v==="system")localStorage.removeItem("fg-theme");else localStorage.setItem("fg-theme",v)}catch(e){}sync()});sync()})();</script>
 </body>
