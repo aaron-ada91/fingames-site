@@ -170,9 +170,7 @@ h1,h2,h3,.word,.pro-brand{font-family:"Space Grotesk",-apple-system,BlinkMacSyst
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 .footer-theme{margin-top:18px}.js .foot .footer-theme{display:inline-flex!important}
 @media(max-width:900px){.menu-toggle{display:none}.js .menu-toggle{display:block}}
-/* Decorative hardware surrounds the complete, unaltered capture. */
-.iphone-frame{display:block;position:relative;box-sizing:border-box;width:100%;padding:10% 2.5% 6%;border:1px solid #77797d;border-radius:12% / 5.5%;background:#08080a;box-shadow:inset 0 0 0 2px #25262a,0 10px 24px #00000018}
-.iphone-frame::before{content:"";position:absolute;top:1.6%;left:35%;width:30%;height:2.4%;border-radius:999px;background:#000;box-shadow:inset -5px 0 0 -3px #252832}
-.iphone-frame::after{content:"";position:absolute;bottom:1.2%;left:34%;width:32%;height:3px;border-radius:999px;background:#77797d}
-.iphone-frame img{display:block;width:100%;height:auto;border:0;border-radius:0;background:#08080a;box-shadow:none}
-.iphone-buttons{position:absolute;left:-3px;top:16%;width:2px;height:5%;border-radius:2px;background:#77797d;box-shadow:0 38px 0 #77797d}
+/* Complete titanium iPhone hardware; the original capture fits inside its screen. */
+.iphone-frame{display:block;position:relative;width:100%;aspect-ratio:340/758;filter:drop-shadow(0 8px 12px #00000026)}
+.iphone-hardware{display:block;position:absolute;inset:0;width:100%;height:100%;stroke:none;stroke-width:1}
+.iphone-frame img{position:absolute;left:5.3%;top:6.4%;display:block;width:89.4%;height:auto;border:0;border-radius:0;background:#08080a;box-shadow:none}
