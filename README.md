@@ -9,10 +9,10 @@ Le contenu vient de `src/legal/` dans le dépôt de l'application. Pour le mettr
 à jour :
 
 ```bash
-cd ~/Developer/FINMATH/FinMath
+cd ~/Developer/FINGAMES/FinGames
 npm run site                      # régénère site/
-cp -R site/. ~/Developer/FINMATH/fingames-site/
-cd ~/Developer/FINMATH/fingames-site
+cp -R site/. ~/Developer/FINGAMES/fingames-site/
+cd ~/Developer/FINGAMES/fingames-site
 git add -A && git commit -m "Mise à jour des documents légaux" && git push
 ```
 
@@ -35,11 +35,29 @@ Chaque page existe en anglais (l'URL donnée aux magasins) et en français.
 | Support | https://fingames.app/support.html | https://fingames.app/support.fr.html |
 
 Aucune ressource tierce n'est chargée : polices et images sont servies par le
-site lui-même, et le seul script, écrit dans la page, retient le thème choisi —
+site lui-même, et le script local gère le thème et le menu —
 ni mesure d'audience, ni requête vers un tiers. Instagram et TikTok sont de
 simples liens, suivis seulement si l'on clique. Le site d'une application qui
 ne collecte rien ne peut pas transmettre l'adresse IP de ses visiteurs à un tiers.
 
-Les images du site se préparent à part, quand les captures changent :
-`python3 scripts/prepare-site-images.py` (captures détourées) et
-`node scripts/prepare-og-image.mts` (aperçu partagé 1200 × 630), puis `npm run site`.
+Les sources de présentation sont dans `site-src/home.mts` et
+`site-src/product.css` du dépôt applicatif. Le générateur conserve les textes
+légaux communs à l’application. Les routes FR/EN historiques sont conservées.
+
+Les captures du 3 octobre 2026 proviennent de l’application actuelle exécutée
+localement en React Native Web. Leur provenance et la reproduction sont décrites
+dans `site-src/current/README.md` du dépôt applicatif. Le site les sert en WebP
+400/800 px et précise que le rendu iOS peut différer.
+
+```bash
+node scripts/capture-site-app.mts          # app locale requise
+node scripts/prepare-current-site-images.mts
+node scripts/prepare-og-image.mts
+npm run site
+node scripts/check-site.mts               # Chrome requis
+npx vitest run src/legal/site.test.ts
+```
+
+Le site ne charge aucune ressource tierce. Son JavaScript gère le thème et le
+menu mobile ; le contenu reste accessible sans JavaScript. Les abonnements sont
+présentés sans prix ni lien App Store non confirmé.
