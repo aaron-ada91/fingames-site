@@ -31,7 +31,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <script>(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("fg-theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})();</script>
-<link rel="stylesheet" href="assets/site.css?v=iphone-titanium">
+<link rel="stylesheet" href="assets/site.css?v=motion-1">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -92,5 +92,210 @@
   <nav aria-label="Documents"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="legal.html">Legal notice</a><a href="support.html">Support</a><a href="terms.fr.html" hreflang="fr" lang="fr">Français</a></nav>
 </div></footer>
 <script>(function(){var d=document.documentElement,b=document.querySelectorAll("[data-set-theme]");function sync(){var c=d.getAttribute("data-theme")||"system";for(var i=0;i<b.length;i++)b[i].setAttribute("aria-pressed",String(b[i].getAttribute("data-set-theme")===c))}for(var i=0;i<b.length;i++)b[i].addEventListener("click",function(){var v=this.getAttribute("data-set-theme");if(v==="system")d.removeAttribute("data-theme");else d.setAttribute("data-theme",v);try{if(v==="system")localStorage.removeItem("fg-theme");else localStorage.setItem("fg-theme",v)}catch(e){}sync()});sync();var toggle=document.querySelector('.menu-toggle'),menu=document.getElementById('product-menu');function close(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false')}toggle.addEventListener('click',function(){var open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));menu.classList.toggle('is-open',open)});menu.addEventListener('click',function(e){if(e.target.closest('a'))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){close();toggle.focus()}})})();</script>
+<script>(() => {
+  const d = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* 1 · Reveal on scroll, with the stagger index set in the markup (--i). */
+  const items = document.querySelectorAll('[data-reveal], .doc-section, .doc h1, .toc');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach((el) => el.classList.add('is-in'));
+  } else {
+    d.classList.add('motion');
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries)
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+    );
+    items.forEach((el) => io.observe(el));
+    // The hero choreography (phones rise, market line draws) starts after the first paint.
+    setTimeout(() => document.querySelectorAll('.hero-stage').forEach((s) => s.classList.add('is-ready')), 60);
+  }
+
+  /* 2 · Pause decorative loops while offscreen. */
+  if ('IntersectionObserver' in window) {
+    const live = new IntersectionObserver((entries) => {
+      for (const e of entries) e.target.classList.toggle('is-paused', !e.isIntersecting);
+    });
+    document.querySelectorAll('[data-hero], .tape').forEach((el) => live.observe(el));
+  }
+
+  /* 3 · Phone screens: skeleton → fade-in, or a clear fallback on error. */
+  document.querySelectorAll('[data-screen]').forEach((screen) => {
+    const img = screen.querySelector('img');
+    if (!img) return;
+    const done = () => screen.classList.add('is-loaded');
+    const fail = () => screen.classList.add('is-error');
+    if (img.complete) (img.naturalWidth ? done : fail)();
+    else {
+      img.addEventListener('load', done, { once: true });
+      img.addEventListener('error', fail, { once: true });
+    }
+  });
+
+  /* 4 · Hero depth: phones follow the pointer (desktop) and drift on scroll. */
+  const hero = document.querySelector('[data-hero]');
+  if (hero && !reduce) {
+    const phones = [...hero.querySelectorAll('[data-depth]')];
+    let tx = 0,
+      ty = 0,
+      cx = 0,
+      cy = 0,
+      sy = 0,
+      raf = 0;
+    const frame = () => {
+      raf = 0;
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      for (const p of phones) {
+        const k = Number(p.getAttribute('data-depth'));
+        p.style.setProperty('--px', `${(cx * 14 * k).toFixed(2)}px`);
+        p.style.setProperty('--py', `${(cy * 10 * k - sy * 0.12 * k).toFixed(2)}px`);
+      }
+      if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) raf = requestAnimationFrame(frame);
+    };
+    const kick = () => {
+      if (!raf) raf = requestAnimationFrame(frame);
+    };
+    if (finePointer)
+      hero.addEventListener('pointermove', (e) => {
+        const r = hero.getBoundingClientRect();
+        tx = (e.clientX - r.left) / r.width - 0.5;
+        ty = (e.clientY - r.top) / r.height - 0.5;
+        kick();
+      });
+    hero.addEventListener('pointerleave', () => {
+      tx = ty = 0;
+      kick();
+    });
+    addEventListener(
+      'scroll',
+      () => {
+        sy = Math.min(scrollY, 600);
+        kick();
+      },
+      { passive: true },
+    );
+  }
+
+  /* 5 · Tilt + spotlight on discipline tiles (precise pointers only: no sticky hover). */
+  if (finePointer && !reduce)
+    document.querySelectorAll('[data-tilt]').forEach((tile) => {
+      const el = tile               ;
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        el.style.setProperty('--rx', `${((0.5 - y) * 7).toFixed(2)}deg`);
+        el.style.setProperty('--ry', `${((x - 0.5) * 9).toFixed(2)}deg`);
+        el.style.setProperty('--gx', `${(x * 100).toFixed(1)}%`);
+        el.style.setProperty('--gy', `${(y * 100).toFixed(1)}%`);
+      });
+      el.addEventListener('pointerleave', () => {
+        el.style.setProperty('--rx', '0deg');
+        el.style.setProperty('--ry', '0deg');
+      });
+    });
+
+  /* 6 · Figures count up once, with an expo-out curve. */
+  const counters = document.querySelectorAll('[data-count]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const co = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          co.unobserve(e.target);
+          const el = e.target               ;
+          const to = Number(el.getAttribute('data-count'));
+          const t0 = performance.now();
+          const step = (t        ) => {
+            const p = Math.min(1, (t - t0) / 1100);
+            el.textContent = String(Math.round(to * (1 - Math.pow(2, -10 * p))));
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = String(to);
+          };
+          el.textContent = '0';
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.6 },
+    );
+    counters.forEach((el) => co.observe(el));
+  }
+
+  /* 7 · Gallery: scroll-snap carousel with prev/next and accurate disabled states. */
+  const track = document.querySelector('[data-gallery-track]')                      ;
+  if (track) {
+    const prev = document.querySelector('[data-gallery="prev"]')                     ;
+    const next = document.querySelector('[data-gallery="next"]')                     ;
+    const step = () => (track.querySelector('li')               ).getBoundingClientRect().width + 24;
+    const sync = () => {
+      prev.disabled = track.scrollLeft < 8;
+      next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 8;
+    };
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }));
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    addEventListener('resize', sync);
+    sync();
+  }
+
+  /* 8 · Copy the support address: success and error states, announced politely. */
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    const b = btn                     ;
+    const label = b.querySelector('.copy-label')               ;
+    const status = document.querySelector('.copy-status')                      ;
+    const initial = label.textContent;
+    let timer = 0;
+    b.addEventListener('click', async () => {
+      clearTimeout(timer);
+      b.classList.remove('is-success', 'is-error');
+      b.classList.add('is-loading');
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(b.getAttribute('data-copy') || '');
+        ok = true;
+      } catch {
+        ok = false;
+      }
+      b.classList.remove('is-loading');
+      b.classList.add(ok ? 'is-success' : 'is-error');
+      const msg = b.getAttribute(ok ? 'data-copied' : 'data-failed') || '';
+      label.textContent = msg;
+      if (status) status.textContent = msg;
+      timer = window.setTimeout(() => {
+        b.classList.remove('is-success', 'is-error');
+        label.textContent = initial;
+      }, 2400);
+    });
+  });
+
+  /* 9 · Header gains depth once the page scrolls. */
+  const top = document.querySelector('.top');
+  if (top) {
+    let ticking = false;
+    const sync = () => {
+      ticking = false;
+      top.classList.toggle('is-scrolled', scrollY > 8);
+    };
+    addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(sync);
+        }
+      },
+      { passive: true },
+    );
+    sync();
+  }
+})();</script>
 </body>
 </html>
