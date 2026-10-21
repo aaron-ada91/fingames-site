@@ -53,7 +53,7 @@
       <h1 data-reveal style="--i:1">Train for the<br><em>finance interview.</em></h1>
       <p class="hero-lead" data-reveal style="--i:2">Learn. Practise. Get evaluated.</p>
       <div class="hero-actions" data-reveal style="--i:3">
-        <a class="btn btn-primary" href="#modes">See the app<span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-primary" href="https://apps.apple.com/fr/app/fingames/id6816743731" data-fallback="#modes">See the app<span class="btn-arrow" aria-hidden="true">→</span></a>
         <a class="btn btn-ghost" href="#pro">FinGames Pro</a>
       </div>
       <p class="availability" data-reveal style="--i:4">iPhone · English & French</p>
@@ -489,6 +489,10 @@
     );
     sync();
   }
+
+  /* 10 · App Store links: kept on Apple devices; elsewhere they stay on the site (data-fallback). */
+  const apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  if (!apple) document.querySelectorAll                   ('a[data-fallback]').forEach((a) => (a.href = a.dataset.fallback ));
 })();</script>
 </body>
 </html>

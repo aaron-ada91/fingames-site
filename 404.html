@@ -259,6 +259,10 @@
     );
     sync();
   }
+
+  /* 10 · App Store links: kept on Apple devices; elsewhere they stay on the site (data-fallback). */
+  const apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  if (!apple) document.querySelectorAll                   ('a[data-fallback]').forEach((a) => (a.href = a.dataset.fallback ));
 })();</script>
 </body>
 </html>
